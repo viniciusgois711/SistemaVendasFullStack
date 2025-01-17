@@ -25,6 +25,7 @@ app.get("/clientes", async (req, res) => {
     }catch(err){
         res.status(500).json({ error: err.message })
     }
+    console.log(req)
 });
 
 app.post("/clientes", async (req, res) => {
@@ -37,6 +38,22 @@ app.post("/clientes", async (req, res) => {
     }catch{
         res.status(500).json({ error: err.message })
     }
+
+});
+
+app.put("/clientes/:id", async (req, res) =>{
+
+    const {id} = req.params;
+    const  {nome, cnpj} = req.body;
+
+    try{
+        const resultado = await pool.query("UPDATE clientes SET nome = $1, cnpj = $2 WHERE id = $3 RETURNING *", [nome,cnpj, id]);
+        res.status(200).json(resultado.rows[0]);
+    }catch(err){
+        res.status(500).json({error: err.message});
+    }
+
+    console.log(req)
 
 });
 
