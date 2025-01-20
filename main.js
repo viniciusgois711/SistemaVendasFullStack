@@ -158,9 +158,13 @@ app.post("/pedidos", async(req, res) => {
     const {id_cliente, condicao_pagamento, observacao, itens} = req.body;
 
     // valor total sera a soma de todos os valores dos itens
-    const valorTotal = 100;
+    let valorTotal = 0;
+    let valor;
 
-    
+    for(item of itens){
+        valor = await pool.query("SELECT preco FROM produtos WHERE id = $1", [item.id_produto]);
+        valorTotal += parseFloat(valor.rows[0].preco)
+    }
 
     const resultado2 = []
     try{
@@ -180,15 +184,5 @@ app.post("/pedidos", async(req, res) => {
 
 });
 
-// {
-//     "id_cliente": 2,
-//     "condicaoPagamento": "avista",
-//     "observacao": "observacaoTeste",
-//     "itens": [{
-//       "id_produto": 1,
-//       "id_pedido": 1,
-//       "descricao": "itenTal"
-//     }]
-//   }
 
 app.listen(3000)
