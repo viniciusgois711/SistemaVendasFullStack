@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { 
@@ -6,6 +6,7 @@ import {
   PoTableModule,
   PoTableColumn
 } from '@po-ui/ng-components';
+import { ClientesService } from '../../services/clientes.service';
 
 @Component({
   selector: 'app-listagem-clientes',
@@ -14,10 +15,16 @@ import {
   templateUrl: './listagem-clientes.component.html',
   styleUrl: './listagem-clientes.component.css'
 })
-export class ListagemClientesComponent {
+export class ListagemClientesComponent implements OnInit {
 
-  constructor(private router: Router){
+  clientes:Array<any> = []
 
+  constructor(private router: Router, private clientesService: ClientesService){
+
+  }
+
+  ngOnInit(){
+    this.getClientes();
   }
 
   readonly colunas: Array<PoTableColumn> = [
@@ -29,6 +36,18 @@ export class ListagemClientesComponent {
 
   paginaFormularioClientes(){
     this.router.navigate(['formulario-clientes']);
+  }
+
+  getClientes(): void{
+    this.clientesService.getClientesApi().subscribe({
+      next: (dados) => {
+        console.log(dados);
+        this.clientes = dados;
+      },
+      error: (error) => {
+        alert("Algo deu errado");
+      }
+    })
   }
 
 }
