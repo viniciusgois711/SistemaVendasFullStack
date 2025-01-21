@@ -1,1 +1,12 @@
-<router-outlet />
+<div class="po-wrapper">
+
+  <po-menu [p-menus]="menus">
+    <div *p-menu-header-template class="po-p-2 po-font-title sample-menu-header-text-color">
+      <p>Sistema de Vendas</p>
+    </div>
+  </po-menu>
+
+  <div class="po-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

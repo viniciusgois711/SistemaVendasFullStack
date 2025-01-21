@@ -1,1 +1,6 @@
-<p>listagem-clientes works!</p>
+<h1>Listagem de Clientes</h1>
+
+<div>
+    <po-button p-label="Adicionar Cliente" (p-click)="paginaFormularioClientes()"></po-button>
+</div>
+<po-table [p-columns]="colunas" class="po-lg-9"></po-table>
