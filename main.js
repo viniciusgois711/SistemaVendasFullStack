@@ -153,6 +153,7 @@ app.get("/pedidos", async (req, res) => {
 });
 
 
+
 app.post("/pedidos", async(req, res) => {
 
     const {id_cliente, condicao_pagamento, observacao, itens} = req.body;
@@ -215,6 +216,18 @@ app.put("/pedidos/:id", async (req, res) => {
 
 });
 
+app.delete("/pedidos/:id", async (req, res) => {
 
+    const {id} = req.params;
+
+    try{
+        await pool.query("DELETE FROM pedidos WHERE id = $1", [id]);
+        res.status(200).send();
+
+    }catch(err){
+        res.status(500).json({error: err.message});
+    }
+
+})
 
 app.listen(3000)
