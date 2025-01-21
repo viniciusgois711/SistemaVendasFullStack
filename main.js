@@ -157,13 +157,12 @@ app.post("/pedidos", async(req, res) => {
 
     const {id_cliente, condicao_pagamento, observacao, itens} = req.body;
 
-    // valor total sera a soma de todos os valores dos itens
-    let valorTotal = 0;
     let valor;
+    let valorTotal = 0;
 
     for(item of itens){
         valor = await pool.query("SELECT preco FROM produtos WHERE id = $1", [item.id_produto]);
-        valorTotal += parseFloat(valor.rows[0].preco)
+        valorTotal += parseFloat(valor.rows[0].preco);
     }
 
     const resultado2 = []
@@ -183,6 +182,39 @@ app.post("/pedidos", async(req, res) => {
     }
 
 });
+
+app.put("/pedidos/:id", async (req, res) => {
+
+    const {id} = req.params;
+    const {id_cliente, condicao_pagamento, observacao, itens} = req.body;
+
+    let valorTotal = 0;
+
+    for(item of itens){
+        valor = await pool.query("SELECT preco FROM produtos WHERE id = $1", [item.id_produto]);
+        valorTotal += parseFloat(valor.rows[0].preco);
+    }
+
+    try{
+        const resultado = await pool.query("UPDATE pedidos SET id_cliente = $1, condicao_pagamento = $2, observacao = $3, valor_total = $4 WHERE id = $5 RETURNING *", [id_cliente, condicao_pagamento, observacao, valorTotal, id]);
+        
+        // deleta itens do pedido que foi alterado, para ser adicionado posteriormente 
+        await pool.query("DELETE FROM itens_pedido WHERE id_pedido = $1", [id]);
+
+        let resultado2 = [];
+        for(item of itens){
+            let query = await pool.query("INSERT INTO itens_pedido (id_produto, id_pedido, descricao) VALUES ($1, $2, $3) RETURNING *", [item.id_produto, id, item.descricao]);
+            resultado2.push(query);
+        
+        }
+        res.json(resultado.rows[0]);
+        res.json(resultado2.rows);
+    }catch(err){
+        res.status(500).json({error: err.message});
+    }
+
+});
+
 
 
 app.listen(3000)
