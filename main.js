@@ -153,7 +153,6 @@ app.get("/pedidos", async (req, res) => {
 });
 
 
-
 app.post("/pedidos", async(req, res) => {
 
     const {id_cliente, condicao_pagamento, observacao, itens} = req.body;
@@ -162,8 +161,8 @@ app.post("/pedidos", async(req, res) => {
     let valorTotal = 0;
 
     for(item of itens){
-        valor = await pool.query("SELECT preco FROM produtos WHERE id = $1", [item.id_produto]);
-        valorTotal += parseFloat(valor.rows[0].preco);
+        valor = item.preco_unitario*item.quantidade;
+        valorTotal += valor;   
     }
 
     const resultado2 = []
@@ -172,12 +171,13 @@ app.post("/pedidos", async(req, res) => {
         
         id_pedido = resultado1.rows[0].id
         for(let item of itens){
-            query = await pool.query("INSERT INTO itens_pedido (id_produto, id_pedido, descricao) VALUES ($1, $2, $3)", [item.id_produto, id_pedido, item.descricao]);
-            resultado2.push(query);
+
+            valor_total_item = item.preco_unitario*item.quantidade;
+            query = await pool.query("INSERT INTO itens_pedido (id_produto, id_pedido, descricao, quantidade, preco_unitario, valor_total) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [item.id_produto, id_pedido, item.descricao, item.quantidade, item.preco_unitario, valor_total_item]);
+            resultado2.push(query.rows[0]);
         }
-        res.json(resultado1.rows[0]);
-        res.json(resultado2.rows);
-        
+        res.json({postPedido: resultado1.rows[0], postItens: resultado2});
+
     }catch(err){
         res.status(500).json({error: err.message});
     }
@@ -191,9 +191,10 @@ app.put("/pedidos/:id", async (req, res) => {
 
     let valorTotal = 0;
 
+
     for(item of itens){
-        valor = await pool.query("SELECT preco FROM produtos WHERE id = $1", [item.id_produto]);
-        valorTotal += parseFloat(valor.rows[0].preco);
+        valor = item.quantidade*item.preco_unitario;
+        valorTotal += valor;
     }
 
     try{
@@ -204,12 +205,12 @@ app.put("/pedidos/:id", async (req, res) => {
 
         let resultado2 = [];
         for(item of itens){
-            let query = await pool.query("INSERT INTO itens_pedido (id_produto, id_pedido, descricao) VALUES ($1, $2, $3) RETURNING *", [item.id_produto, id, item.descricao]);
-            resultado2.push(query);
+            valor_total_item = item.quantidade*item.preco_unitario;
+            let query = await pool.query("INSERT INTO itens_pedido (id_produto, id_pedido, descricao, quantidade, preco_unitario, valor_total) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [item.id_produto, id, item.descricao, item.quantidade, item.preco_unitario, valor_total_item]);
+            resultado2.push(query.rows[0]);
         
         }
-        res.json(resultado.rows[0]);
-        res.json(resultado2.rows);
+        res.json({putPedido: resultado.rows[0], putItem: resultado2});
     }catch(err){
         res.status(500).json({error: err.message});
     }
