@@ -1,1 +1,7 @@
-<p>listagem-produtos works!</p>
+<h1>Listagem de produtos</h1>
+
+<div>
+    <po-button p-label="Adicionar Produto" (p-click)="paginaFormularioProduto()"></po-button>
+</div>
+
+<po-table class="po-lg-9" [p-columns]="colunas"></po-table>
