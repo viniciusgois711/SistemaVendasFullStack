@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PoButtonModule, PoTableColumn, PoTableModule } from '@po-ui/ng-components';
+import { ProdutosService } from '../../services/produtos.service';
 
 @Component({
   selector: 'app-listagem-produtos',
@@ -9,11 +10,18 @@ import { PoButtonModule, PoTableColumn, PoTableModule } from '@po-ui/ng-componen
   templateUrl: './listagem-produtos.component.html',
   styleUrl: './listagem-produtos.component.css'
 })
-export class ListagemProdutosComponent {
+export class ListagemProdutosComponent implements OnInit{
 
-  constructor(private router: Router){
+  produtos:any = []
+
+  constructor(private router: Router, private produtosService: ProdutosService){
 
   }
+
+  ngOnInit(){
+    this.getProdutos();
+  }
+
 
   paginaFormularioProduto(){
     this.router.navigate(['/formulario-produtos']);
@@ -26,5 +34,12 @@ export class ListagemProdutosComponent {
     {property: "classificacao", label: "Classificação"},
     {property: "acoes", label: "Ações"}
   ]
+
+  getProdutos(){
+    this.produtosService.getProdutosApi().subscribe({
+      next: (produtos) => this.produtos = produtos,
+      error: (error) => console.log(error)
+    })
+  }
 
 }
