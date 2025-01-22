@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PoButtonModule, PoTableColumn, PoTableModule } from '@po-ui/ng-components';
+import { PedidosService } from '../../services/pedidos.service';
 
 @Component({
   selector: 'app-listagem-pedidos',
@@ -9,9 +10,15 @@ import { PoButtonModule, PoTableColumn, PoTableModule } from '@po-ui/ng-componen
   templateUrl: './listagem-pedidos.component.html',
   styleUrl: './listagem-pedidos.component.css'
 })
-export class ListagemPedidosComponent {
+export class ListagemPedidosComponent implements OnInit{
 
-  constructor(private router: Router){}
+  pedidos:any = []
+
+  ngOnInit(): void {
+    this.getPedidos();
+  }
+
+  constructor(private router: Router, private pedidosService: PedidosService){}
 
   paginaAddPedido(){
     this.router.navigate(['/formulario-pedidos']);
@@ -24,5 +31,12 @@ export class ListagemPedidosComponent {
     { property: "valor_total", label: 'Valor Total' },
     { property: "acoes", label: 'Ações'}
   ]
+
+  getPedidos(){
+    this.pedidosService.getPedidosApi().subscribe({
+      next: (pedidos) => {this.pedidos = pedidos},
+      error: (error) => console.log(error)
+    })
+  }
 
 }

@@ -3,3 +3,11 @@
 <div>
     <po-button p-label="Voltar" (p-click)="paginaListarPedidos()"></po-button>
 </div>
+
+<form class="po-lg-9">
+    <po-input p-label="ID do Cliente" name="id_cliente" [(ngModel)]="pedido.id_cliente"></po-input>
+    <po-input p-label="Condição de pagamento" name="condicao_pagamento" [(ngModel)]="pedido.condicao_pagamento"></po-input>
+    <po-input p-label="Observação" name="observacao" [(ngModel)]="pedido.observacao"></po-input>
+    <po-input p-label="Valor Total" name="valor_total" [(ngModel)]="pedido.valor_total"></po-input>
+    <po-button p-label="Salvar"></po-button>
+</form>
