@@ -38,7 +38,7 @@ export class AppComponent {
 
   readonly menus: Array<PoMenuItem> = [
     { label: 'Listagem de Clientes', action: this.listagemClientes.bind(this) },
-    { label: 'Listagem de Produtos', action: this.listagemProdutos.bind(this)}
+    { label: 'Listagem de Produtos', action: this.listagemProdutos.bind(this)},
   ];
 
   listagemClientes(){
