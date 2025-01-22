@@ -3,4 +3,4 @@
 <div>
     <po-button p-label="Adicionar Cliente" (p-click)="paginaFormularioClientes()"></po-button>
 </div>
-<po-table [p-columns]="colunas" [p-items]="clientes" class="po-lg-9"></po-table>
+<po-table [p-columns]="colunas" [p-items]="clientes" [p-actions]="acoes" p-actions-right="true" [p-height]="400" class="po-lg-9"></po-table>

@@ -1,3 +1,12 @@
 <h1>Formulário de Clientes</h1>
 
 <po-button p-label="Voltar" (p-click)="paginaListagemClientes()"></po-button>
+
+<form>
+
+    <po-input p-label="Nome" name="nome" [(ngModel)]="cliente.nome"></po-input>
+    
+    <po-input p-label="CNPJ" name="cnpj" [(ngModel)]="cliente.cnpj"></po-input>
+
+    <po-button p-label="Salvar" (p-click)="salvar()"></po-button>
+</form>

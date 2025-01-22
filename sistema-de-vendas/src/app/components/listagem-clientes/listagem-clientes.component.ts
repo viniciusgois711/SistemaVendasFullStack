@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { 
   PoButtonModule,
   PoTableModule,
-  PoTableColumn
+  PoTableColumn,
+  PoTableAction
 } from '@po-ui/ng-components';
 import { ClientesService } from '../../services/clientes.service';
 
@@ -16,6 +17,11 @@ import { ClientesService } from '../../services/clientes.service';
   styleUrl: './listagem-clientes.component.css'
 })
 export class ListagemClientesComponent implements OnInit {
+
+  cliente = {
+    nome: '',
+    cnpj: ''
+  }
 
   clientes:Array<any> = []
 
@@ -34,20 +40,35 @@ export class ListagemClientesComponent implements OnInit {
     {property: 'acoes', label: 'Ações'}
   ]
 
+  readonly acoes: Array<PoTableAction> = [
+    {label: 'editar', action: this.paginaEditarCliente.bind(this)},
+    {label: 'excluir', action: this.deleteCliente.bind(this)} 
+  ]
+  
   paginaFormularioClientes(){
     this.router.navigate(['formulario-clientes']);
   }
 
-  getClientes(): void{
+  paginaEditarCliente(cliente: any){
+    this.router.navigate(['/formulario-clientes'], {state: {clienteAlterar: cliente}});
+  }
+  
+  deleteCliente(cliente: any){
+    this.clientesService.deleteClienteApi(cliente).subscribe({
+      next: () => this.getClientes()
+    })
+  }
+
+  getClientes(){
     this.clientesService.getClientesApi().subscribe({
-      next: (dados) => {
-        console.log(dados);
+      next:(dados) => {
         this.clientes = dados;
       },
       error: (error) => {
-        alert("Algo deu errado");
+        alert(`error`);
       }
     })
   }
+
 
 }

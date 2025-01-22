@@ -7,12 +7,24 @@ import { Observable } from 'rxjs';
 })
 export class ClientesService {
 
-  urlApi = "localhost:3000/clientes";
+  urlApi = "http://localhost:3000/clientes";
 
   constructor(private http: HttpClient) { }
 
   getClientesApi(): Observable<any>{
     return this.http.get<any>(this.urlApi);
+  }
+
+  postClienteApi(cliente: any): Observable<any>{
+    return this.http.post<any>(this.urlApi, cliente);
+  }
+
+  putClienteApi(cliente: any): Observable<any>{
+    return this.http.put<any>(`${this.urlApi}/${cliente.id}`, cliente);
+  }
+
+  deleteClienteApi(cliente:any): Observable<any> {
+    return this.http.delete<any>(`${this.urlApi}/${cliente.id}`);
   }
 
 }
