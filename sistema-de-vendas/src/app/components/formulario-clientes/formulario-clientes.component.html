@@ -1,8 +1,9 @@
 <h1>Formulário de Clientes</h1>
 
-<po-button p-label="Voltar" (p-click)="paginaListagemClientes()"></po-button>
-
-<form>
+<div>
+    <po-button p-label="Voltar" (p-click)="paginaListagemClientes()"></po-button>
+</div>
+<form class="po-lg-9">
 
     <po-input p-label="Nome" name="nome" [(ngModel)]="cliente.nome"></po-input>
     
