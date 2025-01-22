@@ -37,8 +37,9 @@ export class AppComponent {
   }
 
   readonly menus: Array<PoMenuItem> = [
-    { label: 'Listagem de Clientes', action: this.listagemClientes.bind(this) },
-    { label: 'Listagem de Produtos', action: this.listagemProdutos.bind(this)},
+    { label: 'Clientes', action: this.listagemClientes.bind(this) },
+    { label: 'Produtos', action: this.listagemProdutos.bind(this)},
+    { label: 'Pedidos', action: this.listagemPedidos.bind(this)}
   ];
 
   listagemClientes(){
@@ -46,5 +47,8 @@ export class AppComponent {
   }
   listagemProdutos(){
     this.router.navigate(['/listagem-produtos']);
+  }
+  listagemPedidos(){
+    this.router.navigate(['/listagem-pedidos']);
   }
 }

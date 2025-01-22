@@ -1,1 +1,7 @@
-<p>listagem-pedidos works!</p>
+<h1>Listagem de Pedidos</h1>
+
+<div>
+    <po-button p-label="Adicionar Pedido" (p-click)="paginaAddPedido()"></po-button>
+</div>
+
+<po-table [p-columns]="colunas" class="po-lg-9"></po-table>
