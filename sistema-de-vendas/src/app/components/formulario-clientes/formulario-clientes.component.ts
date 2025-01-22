@@ -21,7 +21,7 @@ export class FormularioClientesComponent {
   
   constructor(private router: Router, private clientesService: ClientesService){
 
-    let state: any = this.router.getCurrentNavigation()?.extras.state;
+    let state: any = router.getCurrentNavigation()?.extras.state;
 
     if(state){
       this.cliente = state['clienteAlterar'];

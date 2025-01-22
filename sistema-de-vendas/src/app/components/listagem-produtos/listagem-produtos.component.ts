@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PoButtonModule, PoTableColumn, PoTableModule } from '@po-ui/ng-components';
+import { PoButtonModule, PoTableAction, PoTableColumn, PoTableModule } from '@po-ui/ng-components';
 import { ProdutosService } from '../../services/produtos.service';
 
 @Component({
@@ -35,9 +35,25 @@ export class ListagemProdutosComponent implements OnInit{
     {property: "acoes", label: "Ações"}
   ]
 
+  public readonly acoes: Array<PoTableAction> = [
+    {label: "Excluir",  action: this.deletarProduto.bind(this)},
+    {label: "Editar", action: this.editarProduto.bind(this)}
+  ] 
+
   getProdutos(){
     this.produtosService.getProdutosApi().subscribe({
       next: (produtos) => this.produtos = produtos,
+      error: (error) => console.log(error)
+    })
+  }
+
+  editarProduto(produto: any){
+    this.router.navigate(['/formulario-produtos'], {state: {produtoAlterar: produto}})
+  }
+
+  deletarProduto(produto: any){
+    this.produtosService.deleteProdutosApi(produto).subscribe({
+      next: () => this.getProdutos(),
       error: (error) => console.log(error)
     })
   }

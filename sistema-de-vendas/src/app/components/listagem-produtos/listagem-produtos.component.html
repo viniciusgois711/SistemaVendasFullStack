@@ -4,4 +4,4 @@
     <po-button p-label="Adicionar Produto" (p-click)="paginaFormularioProduto()"></po-button>
 </div>
 
-<po-table class="po-lg-9" [p-columns]="colunas" [p-items]="produtos"></po-table>
+<po-table class="po-lg-9" [p-columns]="colunas" [p-actions]="acoes" p-actions-right="true" [p-items]="produtos"></po-table>
