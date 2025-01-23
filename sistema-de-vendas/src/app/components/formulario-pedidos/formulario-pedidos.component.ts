@@ -38,7 +38,11 @@ export class FormularioPedidosComponent implements OnInit {
   }
 
   async ngOnInit() {
-    
+    this.pedidosService.getItensPedidoApi(this.pedido).subscribe({
+      next: (p) => {
+        this.pedido.itens = p;
+      }
+    })
   }
 
   paginaListarPedidos(){

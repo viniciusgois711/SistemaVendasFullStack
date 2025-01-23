@@ -52,7 +52,6 @@ export class ListagemPedidosComponent implements OnInit{
   }
 
   editarPedido(pedido:any){
-    console.log(pedido)
     this.router.navigate(['formulario-pedidos'], {state: {pedidoAlterar: pedido}});
   }
 

@@ -26,4 +26,8 @@ export class PedidosService {
     return this.http.put(`${this.urlPedidosApi}/${pedido.id}`, pedido);
   }
 
+  getItensPedidoApi(pedido: any){
+    return this.http.get(`${this.urlPedidosApi}/${pedido.id}`);
+  }
+
 }
