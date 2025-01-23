@@ -14,4 +14,8 @@ export class PedidosService {
     return this.http.get(this.urlPedidosApi);
   }
 
+  postPedidosApi(pedido: any){
+    return this.http.post(this.urlPedidosApi, pedido);
+  }
+
 }

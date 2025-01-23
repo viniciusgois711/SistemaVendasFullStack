@@ -155,13 +155,14 @@ app.get("/pedidos", async (req, res) => {
 
 });
 
+// id é o id do cliente, pega todos os pedidos daquele cliente
 app.get("/pedidos/:id", async (req, res) => {
 
     const {id} = req.params;
 
     try{
-        const resultado = await pool.query("SELECT * FROM pedidos WHERE id = $1", [id]);
-        res.json(resultado.rows[0]);
+        const resultado = await pool.query("SELECT * FROM pedidos WHERE id_cliente = $1", [id]);
+        res.json(resultado.rows);
     }catch(err){
         res.status(500).json({error: err.message});
     }

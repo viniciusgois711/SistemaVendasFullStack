@@ -4,10 +4,21 @@
     <po-button p-label="Voltar" (p-click)="paginaListarPedidos()"></po-button>
 </div>
 
-<form class="po-lg-9">
+<form class="po-lg-9" style="max-height: 80vh;">
     <po-input p-label="ID do Cliente" name="id_cliente" [(ngModel)]="pedido.id_cliente"></po-input>
     <po-input p-label="Condição de pagamento" name="condicao_pagamento" [(ngModel)]="pedido.condicao_pagamento"></po-input>
     <po-input p-label="Observação" name="observacao" [(ngModel)]="pedido.observacao"></po-input>
-    <po-input p-label="Valor Total" name="valor_total" [(ngModel)]="pedido.valor_total"></po-input>
-    <po-button p-label="Salvar"></po-button>
+    
+    <po-table [p-columns]="colunasItens" [p-items]="pedido.itens"></po-table>
+
+    <h2>Formulário de Itens</h2>
+    <div style="border: 1px solid black; margin: 1em ;padding: 1em">
+        <po-input p-label="ID do produto" name="id_produto" [(ngModel)]="item.id_produto"></po-input>
+        <po-input p-label="Descrição" name="descricao" [(ngModel)]="item.descricao"></po-input>
+        <po-input p-label="Quantidade" name="quantidade" [(ngModel)]="item.quantidade"></po-input>
+        <po-input p-label="Preço Unitário" name="preco_unitario" [(ngModel)]="item.preco_unitario"></po-input>
+        <po-button p-label="Adicionar Item" (p-click)="adicionarItem()"></po-button>
+    </div>
+
+    <po-button p-label="Salvar" (p-click)="salvar()"></po-button>
 </form>
