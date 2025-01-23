@@ -18,4 +18,12 @@ export class PedidosService {
     return this.http.post(this.urlPedidosApi, pedido);
   }
 
+  deletePedidosApi(pedido: any){
+    return this.http.delete(`${this.urlPedidosApi}/${pedido.id}`);
+  }
+
+  editPedidosApi(pedido: any){
+    return this.http.put(`${this.urlPedidosApi}/${pedido.id}`, pedido);
+  }
+
 }

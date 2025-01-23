@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PoButtonModule, PoTableColumn, PoTableModule } from '@po-ui/ng-components';
+import { PoButtonModule, PoTableAction, PoTableColumn, PoTableModule } from '@po-ui/ng-components';
 import { PedidosService } from '../../services/pedidos.service';
 
 @Component({
@@ -32,11 +32,30 @@ export class ListagemPedidosComponent implements OnInit{
     { property: "acoes", label: 'Ações'}
   ]
 
+  public readonly acoes: Array<PoTableAction> = [
+    {label: "Excluir", action: this.excluirPedido.bind(this)},
+    {label: "Editar", action: this.editarPedido.bind(this)}
+  ]
+
   getPedidos(){
     this.pedidosService.getPedidosApi().subscribe({
       next: (pedidos) => {this.pedidos = pedidos},
       error: (error) => console.log(error)
     })
   }
+
+  excluirPedido(pedido: any){
+    this.pedidosService.deletePedidosApi(pedido).subscribe({
+      next: () => this.getPedidos(),
+      error: (error) => console.log(error)
+    });
+  }
+
+  editarPedido(pedido:any){
+    console.log(pedido)
+    this.router.navigate(['formulario-pedidos'], {state: {pedidoAlterar: pedido}});
+  }
+
+
 
 }

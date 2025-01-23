@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PoButtonModule, PoContainerModule, PoFieldModule, PoTableColumn, PoTableModule } from '@po-ui/ng-components';
@@ -8,11 +8,11 @@ import { PedidosService } from '../../services/pedidos.service';
 @Component({
   selector: 'app-formulario-pedidos',
   standalone: true,
-  imports: [PoButtonModule, PoFieldModule, FormsModule, NgFor, PoContainerModule, PoTableModule],
+  imports: [PoButtonModule, PoFieldModule, FormsModule, PoContainerModule, PoTableModule],
   templateUrl: './formulario-pedidos.component.html',
   styleUrl: './formulario-pedidos.component.css'
 })
-export class FormularioPedidosComponent {
+export class FormularioPedidosComponent implements OnInit {
 
   item: any = {
     id_produto: 0,
@@ -29,23 +29,28 @@ export class FormularioPedidosComponent {
     itens: []
   }
 
-  constructor(private router: Router, private pedidosService: PedidosService){}
+  constructor(private router: Router, private pedidosService: PedidosService){
+    let state = router.getCurrentNavigation()?.extras.state;
+
+    if(state){
+      this.pedido = state['pedidoAlterar']
+    }
+  }
+
+  async ngOnInit() {
+    
+  }
 
   paginaListarPedidos(){
     this.router.navigate(['/listagem-pedidos'])
   }
-  // {
-  //   "id_produto": 4,
-  //   "descricao": "mno",
-  //   "quantidade": 2,
-  //   "preco_unitario": 20.50
-  // }
 
   public readonly colunasItens: Array<PoTableColumn> = [
     { property: "id_produto", label: "ID Produto" },
     { property: "descricao", label: "Descrição" },
     { property: "quantidade", label: "Quantidade" },
     { property: "preco_unitario", label: "Preço Unitário" },
+
   ]
 
   adicionarItem(){
@@ -58,19 +63,12 @@ export class FormularioPedidosComponent {
         }
   }
 
-  // addItem(){
-  //   let item = {
-  //     id_produto: "",
-  //     descricao: "",
-  //     quantidade: 0,
-  //     preco_unitario: 0
-  //   }
-  //   this.pedido.itens.push(item);
-  // }
-
   salvar(){
-    this.addPedido(this.pedido);
-
+    if(this.pedido.id == 0){
+      this.addPedido(this.pedido);
+    }else{
+      this.editPedido(this.pedido);
+    }
     this.router.navigate(['/listagem-pedidos']);
   }
 
@@ -79,6 +77,13 @@ export class FormularioPedidosComponent {
       next: (dado) => {
         console.log(dado)  
       },
+      error: (error) => console.log(error)
+    })
+  }
+
+  editPedido(pedido: any){
+    this.pedidosService.editPedidosApi(pedido).subscribe({
+      next: (pedido) => console.log(pedido),
       error: (error) => console.log(error)
     })
   }
