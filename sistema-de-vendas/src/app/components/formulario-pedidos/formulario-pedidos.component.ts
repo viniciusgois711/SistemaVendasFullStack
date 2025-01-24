@@ -2,8 +2,9 @@ import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PoButtonModule, PoContainerModule, PoFieldModule, PoTableColumn, PoTableModule } from '@po-ui/ng-components';
+import { PoButtonModule, PoComboFilter, PoComboOption, PoContainerModule, PoFieldModule, PoTableColumn, PoTableModule } from '@po-ui/ng-components';
 import { PedidosService } from '../../services/pedidos.service';
+import { ClientesService } from '../../services/clientes.service';
 
 @Component({
   selector: 'app-formulario-pedidos',
@@ -29,7 +30,9 @@ export class FormularioPedidosComponent implements OnInit {
     itens: []
   }
 
-  constructor(private router: Router, private pedidosService: PedidosService){
+  clientes: Array<PoComboOption> = []
+
+  constructor(private router: Router, private pedidosService: PedidosService, private clientesService: ClientesService){
     let state = router.getCurrentNavigation()?.extras.state;
 
     if(state){
@@ -43,6 +46,12 @@ export class FormularioPedidosComponent implements OnInit {
         this.pedido.itens = p;
       }
     })
+    
+    this.clientesService.getClientesApi().subscribe({
+      next: (c) => {this.clientes = c}
+    })
+
+
   }
 
   paginaListarPedidos(){
@@ -68,6 +77,7 @@ export class FormularioPedidosComponent implements OnInit {
   }
 
   salvar(){
+    console.log(this.pedido.id_cliente);
     if(this.pedido.id == 0){
       this.addPedido(this.pedido);
     }else{
@@ -90,6 +100,10 @@ export class FormularioPedidosComponent implements OnInit {
       next: (pedido) => console.log(pedido),
       error: (error) => console.log(error)
     })
+  }
+
+  funcTeste(x:any){
+    this.pedido.id_cliente = x;
   }
 
 }

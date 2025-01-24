@@ -5,8 +5,11 @@
 </div>
 
 <form class="po-lg-9" style="max-height: 80vh;">
-    <po-input p-label="ID do Cliente" name="id_cliente" [(ngModel)]="pedido.id_cliente"></po-input>
-    <po-input p-label="Condição de pagamento" name="condicao_pagamento" [(ngModel)]="pedido.condicao_pagamento"></po-input>
+    
+
+    <po-combo p-label="Cliente" [p-options]="clientes" name="id_cliente" p-field-label="nome" p-field-value="id" (p-change)="funcTeste($event)"></po-combo>
+
+    <po-input p-label="Condição de pagamento" name="condicao_pagamento" [(ngModel)]="pedido.condicao_pagamento" ></po-input>
     <po-input p-label="Observação" name="observacao" [(ngModel)]="pedido.observacao"></po-input>
     
     <po-table [p-columns]="colunasItens" [p-items]="pedido.itens"></po-table>
