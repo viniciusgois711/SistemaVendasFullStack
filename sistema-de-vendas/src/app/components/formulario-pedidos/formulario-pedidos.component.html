@@ -6,8 +6,14 @@
 
 <form class="po-lg-9" style="max-height: 80vh;">
     
-
-    <po-combo p-label="Cliente" [p-options]="clientes" name="id_cliente" p-field-label="nome" p-field-value="id" (p-change)="funcTeste($event)"></po-combo>
+    <po-combo p-label="Cliente" 
+    p-filter-service="http://localhost:3000/clientes" 
+    [p-remove-initial-filter]="true" 
+    name="id_cliente" 
+    p-field-label="nome" 
+    p-field-value="id" 
+    [ngModel]="pedido.id_cliente" 
+    (ngModelChange)="pedido.id_cliente= $event"></po-combo>
 
     <po-input p-label="Condição de pagamento" name="condicao_pagamento" [(ngModel)]="pedido.condicao_pagamento" ></po-input>
     <po-input p-label="Observação" name="observacao" [(ngModel)]="pedido.observacao"></po-input>

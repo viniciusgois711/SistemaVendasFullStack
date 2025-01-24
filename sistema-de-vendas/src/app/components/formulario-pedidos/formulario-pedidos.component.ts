@@ -30,7 +30,8 @@ export class FormularioPedidosComponent implements OnInit {
     itens: []
   }
 
-  clientes: Array<PoComboOption> = []
+  cliente:any 
+  clientes:any = []
 
   constructor(private router: Router, private pedidosService: PedidosService, private clientesService: ClientesService){
     let state = router.getCurrentNavigation()?.extras.state;
@@ -41,17 +42,28 @@ export class FormularioPedidosComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.pedidosService.getItensPedidoApi(this.pedido).subscribe({
-      next: (p) => {
-        this.pedido.itens = p;
-      }
-    })
-    
-    this.clientesService.getClientesApi().subscribe({
-      next: (c) => {this.clientes = c}
-    })
+    this.pedido.itens = await this.getItens()
+    this.clientes = await this.getCliente()
+  }
 
+  async getItens() {
+    return new Promise( (resolve) => {
+      this.pedidosService.getItensPedidoApi(this.pedido).subscribe({
+        next: (p) => {
+          resolve(p)
+        }
+      })
+    })
+  }
 
+  async getCliente(path = '') {
+    return new Promise( (resolve) => {
+      this.clientesService.getClientesApi(path).subscribe({
+        next: (c) => { 
+          resolve(c)
+        }
+      })
+    })
   }
 
   paginaListarPedidos(){
@@ -77,7 +89,6 @@ export class FormularioPedidosComponent implements OnInit {
   }
 
   salvar(){
-    console.log(this.pedido.id_cliente);
     if(this.pedido.id == 0){
       this.addPedido(this.pedido);
     }else{
@@ -100,10 +111,6 @@ export class FormularioPedidosComponent implements OnInit {
       next: (pedido) => console.log(pedido),
       error: (error) => console.log(error)
     })
-  }
-
-  funcTeste(x:any){
-    this.pedido.id_cliente = x;
   }
 
 }

@@ -23,7 +23,11 @@ app.get("/clientes", async (req, res) => {
     
     try{
         const resultado = await pool.query("SELECT * FROM clientes");
-        res.json(resultado.rows);
+        let clientes = {
+            hasNext: false,
+            items: resultado.rows
+        }
+        res.json(clientes);
     }catch(err){
         res.status(500).json({ error: err.message })
     }
@@ -86,7 +90,12 @@ app.get("/produtos", async (req, res) => {
 
     try{
         const resultado = await pool.query("SELECT * FROM produtos");
-        res.status(200).json(resultado.rows); 
+        let produtos = {
+            hasNext: false,
+            items: resultado.rows
+        }
+        res.status(200).json(produtos); 
+
     }catch(err){
         res.status(500).json({erro: err.message})
     }
@@ -147,8 +156,12 @@ app.delete("/produtos/:id", async (req, res) => {
 app.get("/pedidos", async (req, res) => {
     
     try{
-        const resultado = await pool.query("SELECT * FROM pedidos");
-        res.json(resultado.rows);
+        const resultado = await pool.query("SELECT p.*,c.nome nome_cliente FROM pedidos p inner join clientes c on p.id_cliente = c.id ");
+        let pedidos = {
+            hasNext: false,
+            items: resultado.rows
+        } 
+        res.json(pedidos);
     }catch(err){
         res.json({error: err.message});
     }

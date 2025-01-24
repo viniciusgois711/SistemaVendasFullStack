@@ -26,7 +26,8 @@ export class ListagemPedidosComponent implements OnInit{
 
   public readonly colunas: Array<PoTableColumn> = [
     { property: "id", label: 'ID' },
-    { property: "id_cliente", label: 'ID_Cliente' },
+    { property: "id_cliente", label: 'ID_Cliente',visible: false },
+    { property: "nome_cliente", label: 'Cliente' },
     { property: "condicao_pagamento", label: 'Condição de Pagamento' },
     { property: "valor_total", label: 'Valor Total' },
     { property: "acoes", label: 'Ações'}
@@ -54,7 +55,5 @@ export class ListagemPedidosComponent implements OnInit{
   editarPedido(pedido:any){
     this.router.navigate(['formulario-pedidos'], {state: {pedidoAlterar: pedido}});
   }
-
-
 
 }

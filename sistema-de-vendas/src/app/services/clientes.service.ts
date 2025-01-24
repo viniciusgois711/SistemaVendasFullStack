@@ -11,8 +11,8 @@ export class ClientesService {
 
   constructor(private http: HttpClient) { }
 
-  getClientesApi(): Observable<any>{
-    return this.http.get<any>(this.urlApi);
+  getClientesApi(path = ''): Observable<any>{
+    return this.http.get<any>(this.urlApi+path);
   }
 
   postClienteApi(cliente: any): Observable<any>{
