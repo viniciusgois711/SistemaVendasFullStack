@@ -4,49 +4,49 @@
 ## Funcionalidades Principais
 ### Clientes:
 
-Cadastro, edição e exclusão de clientes.
+- Cadastro, edição e exclusão de clientes.
 
-Listagem de clientes cadastrados.
+- Listagem de clientes cadastrados.
 
 ### Produtos:
 
-Cadastro, edição e exclusão de produtos.
+- Cadastro, edição e exclusão de produtos.
 
-Listagem de produtos disponíveis.
+- Listagem de produtos disponíveis.
 
 ### Pedidos:
 
-Criação de pedidos vinculados a um cliente.
+- Criação de pedidos vinculados a um cliente.
 
-Adição de múltiplos produtos a um pedido.
+- Adição de múltiplos produtos a um pedido.
 
-Listagem de pedidos com detalhes do cliente e produtos.
+- Listagem de pedidos com detalhes do cliente e produtos.
 
 ## Tecnologias Utilizadas
 ### Backend
-Node.js: Ambiente de execução JavaScript para construir a API.
+- Node.js: Ambiente de execução JavaScript para construir a API.
 
-Express.js: Framework para criar rotas e gerenciar requisições HTTP.
+- Express.js: Framework para criar rotas e gerenciar requisições HTTP.
 
-PostgreSQL: Banco de dados relacional para armazenamento de dados.
+- PostgreSQL: Banco de dados relacional para armazenamento de dados.
 
-TypeORM/Sequelize/Outro: ORM utilizado para gerenciar o banco de dados.
+- Pool: Ferramenta para gerenciamento de conexões com banco de dados.
 
 ### Frontend
-Angular: Framework para construção da interface do usuário.
+- Angular: Framework para construção da interface do usuário.
 
-PO-UI: Biblioteca de componentes para Angular, utilizada para criar interfaces modernas e responsivas.
+- PO-UI: Biblioteca de componentes para Angular, utilizada para criar interfaces modernas e responsivas.
 
 ### Outras Ferramentas
-Git: Controle de versão.
+- Git: Controle de versão.
 
 ### Pré-requisitos
 Antes de começar, certifique-se de ter instalado:
 
-Node.js (versão 16 ou superior)
+- Node.js 
 
-Angular CLI (versão 15 ou superior)
+- Angular CLI
 
-PostgreSQL (versão 12 ou superior)
+- PostgreSQL 
 
-Git
+- Git
