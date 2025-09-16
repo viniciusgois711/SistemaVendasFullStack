@@ -1,4 +1,4 @@
-# Sistema de Vendas
+# Sistema de Vendas Com A Disciplina de Qualidade de Software
 ### Este é um projeto FullStack desenvolvido para gerenciar um sistema de vendas, com funcionalidades de cadastro de clientes, produtos e pedidos. Cada pedido está vinculado a um cliente e pode conter vários produtos. O projeto foi construído utilizando Node.js no backend, Angular no frontend, PostgreSQL como banco de dados e PO-UI para a interface do usuário.
 
 ## Funcionalidades Principais
