@@ -68,4 +68,4 @@ export function novaFuncao() {
 }
 
 // Chamando a função deprecada para testar o lint
-funcaoAntiga();
+novaFuncao();
