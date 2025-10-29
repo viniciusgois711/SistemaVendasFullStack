@@ -29,7 +29,7 @@ import {
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'sistema-de-vendas';
 
   constructor(private router: Router){
@@ -51,4 +51,21 @@ export class AppComponent {
   listagemPedidos(){
     this.router.navigate(['/listagem-pedidos']);
   }
+
 }
+
+
+/**
+ * @deprecated Use novaFuncao() em vez disso.
+*/
+
+export function funcaoAntiga() {
+  console.log("Essa função está depreciada");
+}
+
+export function novaFuncao() {
+  console.log("Essa é a nova função");
+}
+
+// Chamando a função deprecada para testar o lint
+novaFuncao();
