@@ -33,3 +33,19 @@ jobs:
       - name: Build frontend
         run: npm run build
         working-directory: ./sistema-de-vendas
+
+      #  OWASP Dependency Check
+      - name: Analisar dependências com OWASP Dependency Check
+        uses: dependency-check/Dependency-Check_Action@main
+        with:
+          project: "sistema-de-vendas"
+          path: "./sistema-de-vendas"
+          format: "HTML"
+          out: "reports"
+          failBuildOnCVSS: 7 
+
+      - name: Upload do relatório de vulnerabilidades
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-check-report
+          path: reports/
