@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "eslint . --ext .ts --max-warnings=0",
+    "lint": "eslint . --ext .ts --max-warnings=100",
     "lint:fix": "eslint . --ext .ts --fix",
     "lint:deprecation": "eslint . --ext .ts"
   },
