@@ -34,7 +34,7 @@ export class FormularioPedidosComponent implements OnInit {
   clientes:any = []
 
   constructor(private router: Router, private pedidosService: PedidosService, private clientesService: ClientesService){
-    let state = router.getCurrentNavigation()?.extras.state;
+    const state = router.getCurrentNavigation()?.extras.state;
 
     if(state){
       this.pedido = state['pedidoAlterar']
