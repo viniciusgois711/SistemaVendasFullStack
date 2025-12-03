@@ -3,19 +3,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProdutosService {
-
-  urlApiProdutos = "http://localhost:3000/produtos";
+  urlApiProdutos = 'http://localhost:3000/produtos';
 
   constructor(private http: HttpClient) { }
 
-  getProdutosApi(){
+  getProdutosApi() {
     return this.http.get(this.urlApiProdutos);
   }
 
-  postProdutosApi(produto: any){
+  postProdutosApi(produto: any) {
     return this.http.post(this.urlApiProdutos, produto);
   }
 
@@ -23,9 +22,7 @@ export class ProdutosService {
     return this.http.put(`${this.urlApiProdutos}/${produto.id}`, produto);
   }
 
-  deleteProdutosApi(produtos: any): Observable<any>{
+  deleteProdutosApi(produtos: any): Observable<any> {
     return this.http.delete(`${this.urlApiProdutos}/${produtos.id}`);
   }
-
-
 }

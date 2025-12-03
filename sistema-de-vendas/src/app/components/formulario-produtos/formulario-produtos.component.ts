@@ -9,53 +9,49 @@ import { ProdutosService } from '../../services/produtos.service';
   standalone: true,
   imports: [PoButtonModule, PoFieldModule, FormsModule],
   templateUrl: './formulario-produtos.component.html',
-  styleUrl: './formulario-produtos.component.css'
+  styleUrl: './formulario-produtos.component.css',
 })
-export class FormularioProdutosComponent{
-
+export class FormularioProdutosComponent {
   produto = {
     id: 0,
-    nome: "",
+    nome: '',
     preco: 0.0,
-    classificacao: ""
-  }
+    classificacao: '',
+  };
 
-  
-  constructor(private router: Router, private produtoService: ProdutosService){
-
+  constructor(private router: Router, private produtoService: ProdutosService) {
     let state = router.getCurrentNavigation()?.extras.state;
-    
-    if(state){
-      this.produto = state['produtoAlterar'];
+
+    if (state) {
+      this.produto = state.produtoAlterar;
     }
   }
 
-  paginaListagemProdutos(){
+  paginaListagemProdutos() {
     this.router.navigate(['/listagem-produtos']);
   }
 
-  salvar(){
-    if(this.produto.id == 0){
+  salvar() {
+    if (this.produto.id == 0) {
       this.addProduto();
-    }else{
-      this.alterarProduto()
+    } else {
+      this.alterarProduto();
     }
 
     this.router.navigate(['/listagem-produtos']);
   }
 
-  addProduto(){
+  addProduto() {
     this.produtoService.postProdutosApi(this.produto).subscribe({
       next: (produto) => console.log(produto),
-      error: (error) => console.log(error)
-    })
+      error: (error) => console.log(error),
+    });
   }
 
-  alterarProduto(){
+  alterarProduto() {
     this.produtoService.putProdutosApi(this.produto).subscribe({
       next: (produto) => console.log(produto),
-      error: (error) => console.log(error)
-    })
+      error: (error) => console.log(error),
+    });
   }
-
 }
