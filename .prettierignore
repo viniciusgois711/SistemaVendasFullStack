@@ -1,0 +1,13 @@
+node_modules
+dist
+build
+coverage
+reports
+.git
+.idea
+.vscode
+**/node_modules
+**/dist
+.husky
+/*.log
+*.lock
