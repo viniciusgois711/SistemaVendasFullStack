@@ -13,7 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     importProvidersFrom([PoHttpRequestModule]),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(withInterceptorsFromDi())
+    provideHttpClient(withInterceptorsFromDi()),
   ],
-  
 };

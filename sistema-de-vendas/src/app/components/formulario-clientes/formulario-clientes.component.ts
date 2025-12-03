@@ -7,55 +7,51 @@ import { ClientesService } from '../../services/clientes.service';
 @Component({
   selector: 'app-formulario-clientes',
   standalone: true,
-  imports: [PoButtonModule, PoFieldModule, FormsModule ],
+  imports: [PoButtonModule, PoFieldModule, FormsModule],
   templateUrl: './formulario-clientes.component.html',
-  styleUrl: './formulario-clientes.component.css'
+  styleUrl: './formulario-clientes.component.css',
 })
 export class FormularioClientesComponent {
-
   cliente = {
     id: 0,
     nome: '',
-    cnpj: ''
-  }
-  
-  constructor(private router: Router, private clientesService: ClientesService){
+    cnpj: '',
+  };
 
+  constructor(private router: Router, private clientesService: ClientesService) {
     const state: any = router.getCurrentNavigation()?.extras.state;
 
-    if(state){
+    if (state) {
       this.cliente = state['clienteAlterar'];
     }
-    
   }
 
-  paginaListagemClientes(){
+  paginaListagemClientes() {
     this.router.navigate(['/listagem-clientes']);
   }
 
-  salvar(){
-    if(this.cliente.id != 0){
+  salvar() {
+    if (this.cliente.id != 0) {
       this.putCliente(this.cliente);
-    }else{
+    } else {
       this.postCliente();
     }
     this.router.navigate(['/listagem-clientes']);
   }
 
-  postCliente(){
+  postCliente() {
     this.clientesService.postClienteApi(this.cliente).subscribe({
-      next: (dados) => {
+      next: dados => {
         console.log(dados);
       },
-
-    })
+    });
     this.router.navigate(['/listagem-clientes']);
   }
 
-  putCliente(cliente: any){
+  putCliente(cliente: any) {
     this.clientesService.putClienteApi(this.cliente).subscribe({
-      next: (dados) => console.log(dados),
-      error: (error) => console.log(error)
-    })
+      next: dados => console.log(dados),
+      error: error => console.log(error),
+    });
   }
 }

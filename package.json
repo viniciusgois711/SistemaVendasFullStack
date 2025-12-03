@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node main.js",
-    "dev": "nodemon main.js"
+    "dev": "nodemon main.js",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
     "eslint": "^8.57.1",
-    "eslint-plugin-deprecation": "^3.0.0"
+    "eslint-plugin-deprecation": "^3.0.0",
+    "prettier": "^2.8.8"
   }
 }

@@ -26,6 +26,10 @@ jobs:
         run: npm install
         working-directory: ./sistema-de-vendas
 
+      - name: Verificar formatação (frontend)
+        run: npm run format:check
+        working-directory: ./sistema-de-vendas
+
       - name: Verificar código deprecado
         run: npm run lint:deprecation
         working-directory: ./sistema-de-vendas 
