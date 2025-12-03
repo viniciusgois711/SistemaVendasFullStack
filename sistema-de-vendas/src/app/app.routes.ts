@@ -8,10 +8,10 @@ import { ListagemPedidosComponent } from './components/listagem-pedidos/listagem
 import { FormularioPedidosComponent } from './components/formulario-pedidos/formulario-pedidos.component';
 
 export const routes: Routes = [
-    {path: 'listagem-clientes', component: ListagemClientesComponent},
-    {path: 'formulario-clientes', component: FormularioClientesComponent},
-    {path: 'listagem-produtos', component: ListagemProdutosComponent},
-    {path: 'formulario-produtos', component: FormularioProdutosComponent},
-    {path: 'listagem-pedidos', component: ListagemPedidosComponent},
-    {path: 'formulario-pedidos', component: FormularioPedidosComponent}
+  { path: 'listagem-clientes', component: ListagemClientesComponent },
+  { path: 'formulario-clientes', component: FormularioClientesComponent },
+  { path: 'listagem-produtos', component: ListagemProdutosComponent },
+  { path: 'formulario-produtos', component: FormularioProdutosComponent },
+  { path: 'listagem-pedidos', component: ListagemPedidosComponent },
+  { path: 'formulario-pedidos', component: FormularioPedidosComponent },
 ];
