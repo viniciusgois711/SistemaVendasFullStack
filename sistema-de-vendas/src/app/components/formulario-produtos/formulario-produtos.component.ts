@@ -23,7 +23,7 @@ export class FormularioProdutosComponent{
   
   constructor(private router: Router, private produtoService: ProdutosService){
 
-    let state = router.getCurrentNavigation()?.extras.state;
+    const state = router.getCurrentNavigation()?.extras.state;
     
     if(state){
       this.produto = state['produtoAlterar'];
