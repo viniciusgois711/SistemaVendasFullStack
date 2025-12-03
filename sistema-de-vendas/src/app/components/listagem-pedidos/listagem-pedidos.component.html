@@ -1,7 +1,13 @@
 <h1>Listagem de Pedidos</h1>
 
 <div>
-    <po-button p-label="Adicionar Pedido" (p-click)="paginaAddPedido()"></po-button>
+  <po-button p-label="Adicionar Pedido" (p-click)="paginaAddPedido()"></po-button>
 </div>
 
-<po-table [p-columns]="colunas" [p-actions]="acoes" p-actions-right="true" p-service-api="http://localhost:3000/pedidos" class="po-lg-9"></po-table>
+<po-table
+  [p-columns]="colunas"
+  [p-actions]="acoes"
+  p-actions-right="true"
+  p-service-api="http://localhost:3000/pedidos"
+  class="po-lg-9"
+></po-table>

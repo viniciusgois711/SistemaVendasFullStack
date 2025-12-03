@@ -9,15 +9,14 @@ import {
   PoButtonModule,
   PoTableModule,
   PoModalModule,
-  PoFieldModule
-
+  PoFieldModule,
 } from '@po-ui/ng-components';
-
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, 
+  imports: [
+    RouterOutlet,
     PoToolbarModule,
     PoMenuModule,
     PoPageModule,
@@ -25,46 +24,42 @@ import {
     PoTableModule,
     PoModalModule,
     PoFieldModule,
-],
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
-export class AppComponent  {
+export class AppComponent {
   title = 'sistema-de-vendas';
 
-  constructor(private router: Router){
-
-  }
+  constructor(private router: Router) {}
 
   readonly menus: Array<PoMenuItem> = [
     { label: 'Clientes', action: this.listagemClientes.bind(this) },
-    { label: 'Produtos', action: this.listagemProdutos.bind(this)},
-    { label: 'Pedidos', action: this.listagemPedidos.bind(this)}
+    { label: 'Produtos', action: this.listagemProdutos.bind(this) },
+    { label: 'Pedidos', action: this.listagemPedidos.bind(this) },
   ];
 
-  listagemClientes(){
+  listagemClientes() {
     this.router.navigate(['/listagem-clientes']);
   }
-  listagemProdutos(){
+  listagemProdutos() {
     this.router.navigate(['/listagem-produtos']);
   }
-  listagemPedidos(){
+  listagemPedidos() {
     this.router.navigate(['/listagem-pedidos']);
   }
-
 }
-
 
 /**
  * @deprecated Use novaFuncao() em vez disso.
-*/
+ */
 
 export function funcaoAntiga() {
-  console.log("Essa função está depreciada");
+  console.log('Essa função está depreciada');
 }
 
 export function novaFuncao() {
-  console.log("Essa é a nova função");
+  console.log('Essa é a nova função');
 }
 
 // Chamando a função deprecada para testar o lint

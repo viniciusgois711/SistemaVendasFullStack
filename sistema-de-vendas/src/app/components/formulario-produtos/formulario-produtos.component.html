@@ -1,12 +1,16 @@
 <h1>Formulário de produtos</h1>
 
 <div>
-    <po-button p-label="Voltar" (p-click)="paginaListagemProdutos()"></po-button>
+  <po-button p-label="Voltar" (p-click)="paginaListagemProdutos()"></po-button>
 </div>
 
 <form class="po-lg-9">
-    <po-input p-label="Nome" name="nome" [(ngModel)]="produto.nome"></po-input>
-    <po-input p-label="Preço" name="preco" [(ngModel)]="produto.preco"></po-input>
-    <po-input p-label="Classificação" name="classificacao" [(ngModel)]="produto.classificacao"></po-input>
-    <po-button p-label="Salvar" (p-click)="salvar()"></po-button>
+  <po-input p-label="Nome" name="nome" [(ngModel)]="produto.nome"></po-input>
+  <po-input p-label="Preço" name="preco" [(ngModel)]="produto.preco"></po-input>
+  <po-input
+    p-label="Classificação"
+    name="classificacao"
+    [(ngModel)]="produto.classificacao"
+  ></po-input>
+  <po-button p-label="Salvar" (p-click)="salvar()"></po-button>
 </form>

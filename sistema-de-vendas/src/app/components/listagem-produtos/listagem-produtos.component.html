@@ -1,7 +1,13 @@
 <h1>Listagem de produtos</h1>
 
 <div>
-    <po-button p-label="Adicionar Produto" (p-click)="paginaFormularioProduto()"></po-button>
+  <po-button p-label="Adicionar Produto" (p-click)="paginaFormularioProduto()"></po-button>
 </div>
 
-<po-table class="po-lg-9" [p-columns]="colunas" p-service-api="http://localhost:3000/produtos" [p-actions]="acoes" p-actions-right="true"></po-table>
+<po-table
+  class="po-lg-9"
+  [p-columns]="colunas"
+  p-service-api="http://localhost:3000/produtos"
+  [p-actions]="acoes"
+  p-actions-right="true"
+></po-table>

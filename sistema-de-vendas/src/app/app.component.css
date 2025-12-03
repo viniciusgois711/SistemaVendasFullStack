@@ -1,6 +1,6 @@
 .po-container {
-    margin-left: 300px; /* Largura do menu */
-    padding: 16px; /* Espaçamento interno do conteúdo */
-    box-sizing: border-box; /* Garante que padding não expanda o tamanho */
-    overflow-y: auto; /* Habilita rolagem se o conteúdo for maior que a tela */
-  }
+  margin-left: 300px; /* Largura do menu */
+  padding: 16px; /* Espaçamento interno do conteúdo */
+  box-sizing: border-box; /* Garante que padding não expanda o tamanho */
+  overflow-y: auto; /* Habilita rolagem se o conteúdo for maior que a tela */
+}
