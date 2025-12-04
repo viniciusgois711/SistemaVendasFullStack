@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-12-04T01:51:22.597Z",
+    "detectionDate": "2025-12-04T01:58:15.685Z",
     "formats": {
       "typescript": {
         "sources": {
@@ -149,8 +149,8 @@
             "newClones": 0
           },
           "/workspaces/SistemaVendasFullStack/sistema-de-vendas/src/app/services/produtos.service.ts": {
-            "lines": 44,
-            "tokens": 416,
+            "lines": 27,
+            "tokens": 234,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -282,8 +282,8 @@
           }
         },
         "total": {
-          "lines": 814,
-          "tokens": 7049,
+          "lines": 797,
+          "tokens": 6867,
           "sources": 23,
           "clones": 0,
           "duplicatedLines": 0,
@@ -440,11 +440,11 @@
             "lines": 41,
             "tokens": 231,
             "sources": 1,
-            "clones": 2,
-            "duplicatedLines": 32,
-            "duplicatedTokens": 166,
-            "percentage": 78.05,
-            "percentageTokens": 71.86,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
             "newDuplicatedLines": 0,
             "newClones": 0
           },
@@ -549,11 +549,11 @@
           "lines": 292,
           "tokens": 1800,
           "sources": 9,
-          "clones": 1,
-          "duplicatedLines": 16,
-          "duplicatedTokens": 83,
-          "percentage": 5.48,
-          "percentageTokens": 4.61,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
@@ -588,54 +588,17 @@
       }
     },
     "total": {
-      "lines": 1260,
-      "tokens": 10222,
+      "lines": 1243,
+      "tokens": 10040,
       "sources": 42,
-      "clones": 1,
-      "duplicatedLines": 16,
-      "duplicatedTokens": 83,
-      "percentage": 1.27,
-      "percentageTokens": 0.81,
+      "clones": 0,
+      "duplicatedLines": 0,
+      "duplicatedTokens": 0,
+      "percentage": 0,
+      "percentageTokens": 0,
       "newDuplicatedLines": 0,
       "newClones": 0
     }
   },
-  "duplicates": [
-    {
-      "format": "json",
-      "lines": 17,
-      "fragment": ",\n      \"isBackground\": true,\n      \"problemMatcher\": {\n        \"owner\": \"typescript\",\n        \"pattern\": \"$tsc\",\n        \"background\": {\n          \"activeOnStart\": true,\n          \"beginsPattern\": {\n            \"regexp\": \"(.*?)\"\n          },\n          \"endsPattern\": {\n            \"regexp\": \"bundle generation complete\"\n          }\n        }\n      }\n    }\n  ]",
-      "tokens": 0,
-      "firstFile": {
-        "name": ".vscode/tasks.json",
-        "start": 25,
-        "end": 41,
-        "startLoc": {
-          "line": 25,
-          "column": 7,
-          "position": 146
-        },
-        "endLoc": {
-          "line": 41,
-          "column": 2,
-          "position": 229
-        }
-      },
-      "secondFile": {
-        "name": ".vscode/tasks.json",
-        "start": 7,
-        "end": 22,
-        "startLoc": {
-          "line": 7,
-          "column": 8,
-          "position": 48
-        },
-        "endLoc": {
-          "line": 22,
-          "column": 2,
-          "position": 129
-        }
-      }
-    }
-  ]
+  "duplicates": []
 }
