@@ -21,6 +21,10 @@ jobs:
       - name: Instalar backend
         run: npm install
 
+      - name: Verificar duplicação de código (jscpd)
+        run:
+          npm run check-duplication
+        
       # Frontend
       - name: Instalar frontend
         run: npm install

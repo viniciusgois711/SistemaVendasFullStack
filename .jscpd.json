@@ -1,0 +1,12 @@
+{
+  "reporters": ["json", "console"],
+  "minLines": 3,
+  "minTokens": 40,
+  "threshold": 2,
+  "ignore": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/.git/**",
+    "**/reports/**"
+  ]
+}
