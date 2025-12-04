@@ -7,7 +7,8 @@
     "start": "node main.js",
     "dev": "nodemon main.js",
     "format": "prettier --write src/",
-    "format:check": "prettier --check src"
+    "format:check": "prettier --check src",
+    "check-duplication": "jscpd --config .jscpd.json --output reports/jscpd.json"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "@typescript-eslint/parser": "^8.46.2",
     "eslint": "^8.57.1",
     "eslint-plugin-deprecation": "^3.0.0",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "jscpd": "^4.0.0"
   }
 }

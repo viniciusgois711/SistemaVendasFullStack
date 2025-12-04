@@ -11,7 +11,8 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "lint:deprecation": "eslint . --ext .ts",
     "format": "prettier --write src/",
-    "format:check": "prettier --check src"
+    "format:check": "prettier --check src",
+    "check-duplication": "npx jscpd --config ../.jscpd.json --output ../reports/jscpd.json"
    },
   "private": true,
   "dependencies": {
@@ -45,6 +46,7 @@
     "eslint": "^8.57.1",
     "@typescript-eslint/parser": "^8.46.2",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "jscpd": "^4.0.0"
   }
 }
