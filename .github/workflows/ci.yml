@@ -31,15 +31,14 @@ jobs:
 
       - name: Gerar diagrama de classes UML
         run: |
-          mkdir -p ../reports/uml
+          mkdir -p reports/uml
           npm run generate-uml
-        working-directory: ./sistema-de-vendas
 
       - name: Upload do diagrama UML
         uses: actions/upload-artifact@v4
         with:
           name: uml-diagram
-          path: reports/uml/diagram.png
+          path: reports/uml/diagram.svg
 
       - name: Verificar formatação (frontend)
         run: npm run format:check

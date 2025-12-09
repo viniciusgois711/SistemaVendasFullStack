@@ -9,7 +9,7 @@
     "format": "prettier --write src/",
     "format:check": "prettier --check src",
     "check-duplication": "jscpd --config .jscpd.json --output reports/jscpd.json",
-    "generate-uml": "npx tsuml2 -p ./sistema-de-vendas/tsconfig.json -o reports/uml/diagram.png"
+    "generate-uml": "npx tsuml2 -g \"./src/**/*.ts\" -p ./tsconfig.json -o reports/uml/diagram.svg"
   },
   "keywords": [],
   "author": "",
