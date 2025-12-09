@@ -31,8 +31,9 @@ jobs:
 
       - name: Gerar diagrama de classes UML
         run: |
-          # Gera diagrama a partir do tsconfig do frontend e salva em reports/uml
+          mkdir -p ../reports/uml
           npm run generate-uml
+        working-directory: ./sistema-de-vendas
 
       - name: Upload do diagrama UML
         uses: actions/upload-artifact@v4
