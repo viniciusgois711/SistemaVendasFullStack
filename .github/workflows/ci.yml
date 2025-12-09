@@ -15,20 +15,30 @@ jobs:
       - name: Usar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: '18'
 
       # Backend
       - name: Instalar backend
         run: npm install
 
       - name: Verificar duplicação de código (jscpd)
-        run:
-          npm run check-duplication
-        
+        run: npm run check-duplication
+
       # Frontend
       - name: Instalar frontend
         run: npm install
         working-directory: ./sistema-de-vendas
+
+      - name: Gerar diagrama de classes UML
+        run: |
+          # Gera diagrama a partir do tsconfig do frontend e salva em reports/uml
+          npm run generate-uml
+
+      - name: Upload do diagrama UML
+        uses: actions/upload-artifact@v4
+        with:
+          name: uml-diagram
+          path: reports/uml/diagram.png
 
       - name: Verificar formatação (frontend)
         run: npm run format:check
@@ -36,7 +46,7 @@ jobs:
 
       - name: Verificar código deprecado
         run: npm run lint:deprecation
-        working-directory: ./sistema-de-vendas 
+        working-directory: ./sistema-de-vendas
 
       - name: Build frontend
         run: npm run build
@@ -46,11 +56,11 @@ jobs:
       - name: Analisar dependências com OWASP Dependency Check
         uses: dependency-check/Dependency-Check_Action@main
         with:
-          project: "sistema-de-vendas"
-          path: "./sistema-de-vendas"
-          format: "HTML"
-          out: "reports"
-          failBuildOnCVSS: 7 
+          project: 'sistema-de-vendas'
+          path: './sistema-de-vendas'
+          format: 'HTML'
+          out: 'reports'
+          failBuildOnCVSS: 7
 
       - name: Upload do relatório de vulnerabilidades
         uses: actions/upload-artifact@v4
@@ -61,4 +71,3 @@ jobs:
       - name: Run lint
         run: npm run lint
         working-directory: ./sistema-de-vendas
-

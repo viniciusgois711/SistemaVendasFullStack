@@ -1,0 +1,383 @@
+<svg version="1.1" baseProfile="full" width="2365.3" height="662.0" viewBox="0 0 2365.25 662" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+<desc >#.interface: fill=lightblue
+#.enumeration: fill=lightgreen
+#.type: fill=lightgray
+
+[AppComponent|+title: string;+menus: PoMenuItem\[\];-router: Router|+listagemClientes(): void;+listagemProdutos(): void;+listagemPedidos(): void]
+[ClientesService|+urlApi: string;-http: HttpClient|+getClientesApi(): Observable&lt;any&gt;;+postClienteApi(): Observable&lt;any&gt;;+putClienteApi(): Observable&lt;any&gt;;+deleteClienteApi(): Observable&lt;any&gt;]
+[PedidosService|+urlPedidosApi: string;-http: HttpClient|+getPedidosApi(): Observable&lt;Object&gt;;+postPedidosApi(): Observable&lt;Object&gt;;+deletePedidosApi(): Observable&lt;Object&gt;;+editPedidosApi(): Observable&lt;Object&gt;;+getItensPedidoApi(): Observable&lt;Object&gt;]
+[ProdutosService|+urlApiProdutos: string;-http: HttpClient|+getProdutosApi(): Observable&lt;Object&gt;;+postProdutosApi(): Observable&lt;Object&gt;;+putProdutosApi(): Observable&lt;Object&gt;;+deleteProdutosApi(): Observable&lt;any&gt;]
+[FormularioClientesComponent|+cliente: { id: number; nome: string; cnpj: string; };-router: Router;-clientesService: ClientesService|+paginaListagemClientes(): void;+salvar(): void;+postCliente(): void;+putCliente(): void]
+[FormularioPedidosComponent|+item: any;+pedido: any;+cliente: any;+clientes: any;+colunasItens: PoTableColumn\[\];-router: Router;-pedidosService: PedidosService;-clientesService: ClientesService|+ngOnInit(): Promise&lt;void&gt;;+getItens(): Promise&lt;unknown&gt;;+getCliente(): Promise&lt;unknown&gt;;+paginaListarPedidos(): void;+adicionarItem(): void;+salvar(): void;+addPedido(): void;+editPedido(): void]
+[OnInit]&lt;:--[FormularioPedidosComponent]
+[FormularioProdutosComponent|+produto: { id: number; nome: string; preco: number; classificacao: string; };-router: Router;-produtoService: ProdutosService|+paginaListagemProdutos(): void;+salvar(): void;+addProduto(): void;+alterarProduto(): void]
+[ListagemClientesComponent|+cliente: { nome: string; cnpj: string; };+clientes: any\[\];+colunas: PoTableColumn\[\];+acoes: PoTableAction\[\];-router: Router;-clientesService: ClientesService|+ngOnInit(): void;+paginaFormularioClientes(): void;+paginaEditarCliente(): void;+deleteCliente(): void;+getClientes(): void]
+[OnInit]&lt;:--[ListagemClientesComponent]
+[ListagemPedidosComponent|+pedidos: any;+colunas: PoTableColumn\[\];+acoes: PoTableAction\[\];-router: Router;-pedidosService: PedidosService|+ngOnInit(): void;+paginaAddPedido(): void;+getPedidos(): void;+excluirPedido(): void;+editarPedido(): void]
+[OnInit]&lt;:--[ListagemPedidosComponent]
+[ListagemProdutosComponent|+produtos: any;+colunas: PoTableColumn\[\];+acoes: PoTableAction\[\];-router: Router;-produtosService: ProdutosService|+ngOnInit(): void;+paginaFormularioProduto(): void;+getProdutos(): void;+editarProduto(): void;+deletarProduto(): void]
+[OnInit]&lt;:--[ListagemProdutosComponent]</desc>
+<g stroke-width="1.0" text-align="left" font="12pt Helvetica, Arial, sans-serif" font-size="12pt" font-family="Helvetica" font-weight="normal" font-style="normal">
+<g font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round" stroke="#33322E">
+<g stroke="transparent" fill="transparent">
+<rect x="0.0" y="0.0" height="662.0" width="2365.3" stroke="none"></rect>
+</g>
+<g transform="translate(8, 8)" fill="#33322E">
+<g transform="translate(20, 20)" fill="#eee8d5" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal">
+<g stroke-dasharray="6 6">
+<path d="M1691.1 132.6 L1196.75 262 L1196.75 282 L1196.8 282.0 " fill="none"></path>
+</g>
+<path d="M1692.5 137.8 L1691.1 132.6 L1689.8 127.5 L1704.0 129.2 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M1699.9 144.3 L1519.75 262 L1519.75 306.5 L1519.8 306.5 " fill="none"></path>
+</g>
+<path d="M1702.8 148.8 L1699.9 144.3 L1696.9 139.8 L1711.0 137.0 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M1755.3 147.7 L1839.75 262 L1839.75 331 L1839.8 331.0 " fill="none"></path>
+</g>
+<path d="M1759.5 144.6 L1755.3 147.7 L1751.0 150.9 L1747.3 137.0 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M1779.7 135.5 L2163.75 262 L2163.75 331 L2163.8 331.0 " fill="none"></path>
+</g>
+<path d="M1781.3 130.5 L1779.7 135.5 L1778.0 140.6 L1767.0 131.4 Z"></path>
+<g data-name="AppComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="AppComponent">
+<rect x="0.0" y="40.0" height="162.0" width="218.0" data-name="AppComponent"></rect>
+<path d="M0.0 72.0 L218.0 72.0" fill="none" data-name="AppComponent"></path>
+<path d="M0.0 137.0 L218.0 137.0" fill="none" data-name="AppComponent"></path>
+</g>
+<g transform="translate(0, 40)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AppComponent" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AppComponent" data-compartment="0">
+<a id="../../sistema-de-vendas/src/app/app.component.ts.AppComponent" xlink:href="../../sistema-de-vendas/src/app/app.component.ts"><text x="101.0" y="14.1" stroke="none" text-anchor="middle" data-name="AppComponent" data-compartment="0">AppComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(0, 72)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AppComponent" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AppComponent" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="AppComponent" data-compartment="1">+title: string</text>
+<text x="0.0" y="30.3" stroke="none" data-name="AppComponent" data-compartment="1">+menus: PoMenuItem[]</text>
+<text x="0.0" y="46.5" stroke="none" data-name="AppComponent" data-compartment="1">-router: Router</text>
+
+</g>
+</g>
+<g transform="translate(0, 137)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AppComponent" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AppComponent" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="AppComponent" data-compartment="2">+listagemClientes(): void</text>
+<text x="0.0" y="30.3" stroke="none" data-name="AppComponent" data-compartment="2">+listagemProdutos(): void</text>
+<text x="0.0" y="46.5" stroke="none" data-name="AppComponent" data-compartment="2">+listagemPedidos(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="ClientesService">
+<g fill="#eee8d5" stroke="#33322E" data-name="ClientesService">
+<rect x="258.0" y="40.5" height="161.0" width="317.0" data-name="ClientesService"></rect>
+<path d="M258.0 72.5 L575.0 72.5" fill="none" data-name="ClientesService"></path>
+<path d="M258.0 120.5 L575.0 120.5" fill="none" data-name="ClientesService"></path>
+</g>
+<g transform="translate(258, 40.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ClientesService" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ClientesService" data-compartment="0">
+<a id="../../sistema-de-vendas/src/app/services/clientes.service.ts.ClientesService" xlink:href="../../sistema-de-vendas/src/app/services/clientes.service.ts"><text x="150.5" y="14.1" stroke="none" text-anchor="middle" data-name="ClientesService" data-compartment="0">ClientesService</text></a>
+
+</g>
+</g>
+<g transform="translate(258, 72.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ClientesService" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ClientesService" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="ClientesService" data-compartment="1">+urlApi: string</text>
+<text x="0.0" y="30.3" stroke="none" data-name="ClientesService" data-compartment="1">-http: HttpClient</text>
+
+</g>
+</g>
+<g transform="translate(258, 120.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ClientesService" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ClientesService" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="ClientesService" data-compartment="2">+getClientesApi(): Observable&lt;any&gt;</text>
+<text x="0.0" y="30.3" stroke="none" data-name="ClientesService" data-compartment="2">+postClienteApi(): Observable&lt;any&gt;</text>
+<text x="0.0" y="46.5" stroke="none" data-name="ClientesService" data-compartment="2">+putClienteApi(): Observable&lt;any&gt;</text>
+<text x="0.0" y="62.7" stroke="none" data-name="ClientesService" data-compartment="2">+deleteClienteApi(): Observable&lt;any&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="PedidosService">
+<g fill="#eee8d5" stroke="#33322E" data-name="PedidosService">
+<rect x="615.0" y="32.5" height="177.0" width="354.0" data-name="PedidosService"></rect>
+<path d="M615.0 64.5 L969.0 64.5" fill="none" data-name="PedidosService"></path>
+<path d="M615.0 112.5 L969.0 112.5" fill="none" data-name="PedidosService"></path>
+</g>
+<g transform="translate(615, 32.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="PedidosService" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="PedidosService" data-compartment="0">
+<a id="../../sistema-de-vendas/src/app/services/pedidos.service.ts.PedidosService" xlink:href="../../sistema-de-vendas/src/app/services/pedidos.service.ts"><text x="169.0" y="14.1" stroke="none" text-anchor="middle" data-name="PedidosService" data-compartment="0">PedidosService</text></a>
+
+</g>
+</g>
+<g transform="translate(615, 64.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="PedidosService" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="PedidosService" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="PedidosService" data-compartment="1">+urlPedidosApi: string</text>
+<text x="0.0" y="30.3" stroke="none" data-name="PedidosService" data-compartment="1">-http: HttpClient</text>
+
+</g>
+</g>
+<g transform="translate(615, 112.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="PedidosService" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="PedidosService" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="PedidosService" data-compartment="2">+getPedidosApi(): Observable&lt;Object&gt;</text>
+<text x="0.0" y="30.3" stroke="none" data-name="PedidosService" data-compartment="2">+postPedidosApi(): Observable&lt;Object&gt;</text>
+<text x="0.0" y="46.5" stroke="none" data-name="PedidosService" data-compartment="2">+deletePedidosApi(): Observable&lt;Object&gt;</text>
+<text x="0.0" y="62.7" stroke="none" data-name="PedidosService" data-compartment="2">+editPedidosApi(): Observable&lt;Object&gt;</text>
+<text x="0.0" y="78.9" stroke="none" data-name="PedidosService" data-compartment="2">+getItensPedidoApi(): Observable&lt;Object&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="ProdutosService">
+<g fill="#eee8d5" stroke="#33322E" data-name="ProdutosService">
+<rect x="1009.0" y="40.5" height="161.0" width="340.0" data-name="ProdutosService"></rect>
+<path d="M1009.0 72.5 L1349.0 72.5" fill="none" data-name="ProdutosService"></path>
+<path d="M1009.0 120.5 L1349.0 120.5" fill="none" data-name="ProdutosService"></path>
+</g>
+<g transform="translate(1009, 40.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ProdutosService" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ProdutosService" data-compartment="0">
+<a id="../../sistema-de-vendas/src/app/services/produtos.service.ts.ProdutosService" xlink:href="../../sistema-de-vendas/src/app/services/produtos.service.ts"><text x="162.0" y="14.1" stroke="none" text-anchor="middle" data-name="ProdutosService" data-compartment="0">ProdutosService</text></a>
+
+</g>
+</g>
+<g transform="translate(1009, 72.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProdutosService" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProdutosService" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="ProdutosService" data-compartment="1">+urlApiProdutos: string</text>
+<text x="0.0" y="30.3" stroke="none" data-name="ProdutosService" data-compartment="1">-http: HttpClient</text>
+
+</g>
+</g>
+<g transform="translate(1009, 120.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProdutosService" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProdutosService" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="ProdutosService" data-compartment="2">+getProdutosApi(): Observable&lt;Object&gt;</text>
+<text x="0.0" y="30.3" stroke="none" data-name="ProdutosService" data-compartment="2">+postProdutosApi(): Observable&lt;Object&gt;</text>
+<text x="0.0" y="46.5" stroke="none" data-name="ProdutosService" data-compartment="2">+putProdutosApi(): Observable&lt;Object&gt;</text>
+<text x="0.0" y="62.7" stroke="none" data-name="ProdutosService" data-compartment="2">+deleteProdutosApi(): Observable&lt;any&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="FormularioClientesComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="FormularioClientesComponent">
+<rect x="1389.0" y="8.0" height="226.0" width="275.0" data-name="FormularioClientesComponent"></rect>
+<path d="M1389.0 40.0 L1664.0 40.0" fill="none" data-name="FormularioClientesComponent"></path>
+<path d="M1389.0 153.0 L1664.0 153.0" fill="none" data-name="FormularioClientesComponent"></path>
+</g>
+<g transform="translate(1389, 8)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="FormularioClientesComponent" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="FormularioClientesComponent" data-compartment="0">
+<a id="../../sistema-de-vendas/src/app/components/formulario-clientes/formulario-clientes.component.ts.FormularioClientesComponent" xlink:href="../../sistema-de-vendas/src/app/components/formulario-clientes/formulario-clientes.component.ts"><text x="129.5" y="14.1" stroke="none" text-anchor="middle" data-name="FormularioClientesComponent" data-compartment="0">FormularioClientesComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(1389, 40)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="FormularioClientesComponent" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="FormularioClientesComponent" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="FormularioClientesComponent" data-compartment="1">+cliente: { id: number</text>
+<text x="0.0" y="30.3" stroke="none" data-name="FormularioClientesComponent" data-compartment="1">nome: string</text>
+<text x="0.0" y="46.5" stroke="none" data-name="FormularioClientesComponent" data-compartment="1">cnpj: string</text>
+<text x="0.0" y="62.7" stroke="none" data-name="FormularioClientesComponent" data-compartment="1">}</text>
+<text x="0.0" y="78.9" stroke="none" data-name="FormularioClientesComponent" data-compartment="1">-router: Router</text>
+<text x="0.0" y="95.1" stroke="none" data-name="FormularioClientesComponent" data-compartment="1">-clientesService: ClientesService</text>
+
+</g>
+</g>
+<g transform="translate(1389, 153)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="FormularioClientesComponent" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="FormularioClientesComponent" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="FormularioClientesComponent" data-compartment="2">+paginaListagemClientes(): void</text>
+<text x="0.0" y="30.3" stroke="none" data-name="FormularioClientesComponent" data-compartment="2">+salvar(): void</text>
+<text x="0.0" y="46.5" stroke="none" data-name="FormularioClientesComponent" data-compartment="2">+postCliente(): void</text>
+<text x="0.0" y="62.7" stroke="none" data-name="FormularioClientesComponent" data-compartment="2">+putCliente(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="FormularioPedidosComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="FormularioPedidosComponent">
+<rect x="1055.3" y="282.0" height="324.0" width="283.0" data-name="FormularioPedidosComponent"></rect>
+<path d="M1055.3 314.0 L1338.3 314.0" fill="none" data-name="FormularioPedidosComponent"></path>
+<path d="M1055.3 460.0 L1338.3 460.0" fill="none" data-name="FormularioPedidosComponent"></path>
+</g>
+<g transform="translate(1055.25, 282)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="FormularioPedidosComponent" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="FormularioPedidosComponent" data-compartment="0">
+<a id="../../sistema-de-vendas/src/app/components/formulario-pedidos/formulario-pedidos.component.ts.FormularioPedidosComponent" xlink:href="../../sistema-de-vendas/src/app/components/formulario-pedidos/formulario-pedidos.component.ts"><text x="133.5" y="14.1" stroke="none" text-anchor="middle" data-name="FormularioPedidosComponent" data-compartment="0">FormularioPedidosComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(1055.25, 314)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="FormularioPedidosComponent" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="FormularioPedidosComponent" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="FormularioPedidosComponent" data-compartment="1">+item: any</text>
+<text x="0.0" y="30.3" stroke="none" data-name="FormularioPedidosComponent" data-compartment="1">+pedido: any</text>
+<text x="0.0" y="46.5" stroke="none" data-name="FormularioPedidosComponent" data-compartment="1">+cliente: any</text>
+<text x="0.0" y="62.7" stroke="none" data-name="FormularioPedidosComponent" data-compartment="1">+clientes: any</text>
+<text x="0.0" y="78.9" stroke="none" data-name="FormularioPedidosComponent" data-compartment="1">+colunasItens: PoTableColumn[]</text>
+<text x="0.0" y="95.1" stroke="none" data-name="FormularioPedidosComponent" data-compartment="1">-router: Router</text>
+<text x="0.0" y="111.3" stroke="none" data-name="FormularioPedidosComponent" data-compartment="1">-pedidosService: PedidosService</text>
+<text x="0.0" y="127.5" stroke="none" data-name="FormularioPedidosComponent" data-compartment="1">-clientesService: ClientesService</text>
+
+</g>
+</g>
+<g transform="translate(1055.25, 460)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="FormularioPedidosComponent" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="FormularioPedidosComponent" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="FormularioPedidosComponent" data-compartment="2">+ngOnInit(): Promise&lt;void&gt;</text>
+<text x="0.0" y="30.3" stroke="none" data-name="FormularioPedidosComponent" data-compartment="2">+getItens(): Promise&lt;unknown&gt;</text>
+<text x="0.0" y="46.5" stroke="none" data-name="FormularioPedidosComponent" data-compartment="2">+getCliente(): Promise&lt;unknown&gt;</text>
+<text x="0.0" y="62.7" stroke="none" data-name="FormularioPedidosComponent" data-compartment="2">+paginaListarPedidos(): void</text>
+<text x="0.0" y="78.9" stroke="none" data-name="FormularioPedidosComponent" data-compartment="2">+adicionarItem(): void</text>
+<text x="0.0" y="95.1" stroke="none" data-name="FormularioPedidosComponent" data-compartment="2">+salvar(): void</text>
+<text x="0.0" y="111.3" stroke="none" data-name="FormularioPedidosComponent" data-compartment="2">+addPedido(): void</text>
+<text x="0.0" y="127.5" stroke="none" data-name="FormularioPedidosComponent" data-compartment="2">+editPedido(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="OnInit">
+<g fill="#eee8d5" stroke="#33322E" data-name="OnInit">
+<rect x="1704.0" y="105.0" height="32.0" width="63.0" data-name="OnInit"></rect>
+</g>
+<g transform="translate(1704, 105)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="OnInit" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="OnInit" data-compartment="0">
+<text x="23.5" y="14.1" stroke="none" text-anchor="middle" data-name="OnInit" data-compartment="0">OnInit</text>
+
+</g>
+</g>
+</g>
+<g data-name="FormularioProdutosComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="FormularioProdutosComponent">
+<rect x="1807.0" y="0.0" height="242.0" width="282.0" data-name="FormularioProdutosComponent"></rect>
+<path d="M1807.0 32.0 L2089.0 32.0" fill="none" data-name="FormularioProdutosComponent"></path>
+<path d="M1807.0 161.0 L2089.0 161.0" fill="none" data-name="FormularioProdutosComponent"></path>
+</g>
+<g transform="translate(1807, 0)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="FormularioProdutosComponent" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="FormularioProdutosComponent" data-compartment="0">
+<a id="../../sistema-de-vendas/src/app/components/formulario-produtos/formulario-produtos.component.ts.FormularioProdutosComponent" xlink:href="../../sistema-de-vendas/src/app/components/formulario-produtos/formulario-produtos.component.ts"><text x="133.0" y="14.1" stroke="none" text-anchor="middle" data-name="FormularioProdutosComponent" data-compartment="0">FormularioProdutosComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(1807, 32)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="FormularioProdutosComponent" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="FormularioProdutosComponent" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="FormularioProdutosComponent" data-compartment="1">+produto: { id: number</text>
+<text x="0.0" y="30.3" stroke="none" data-name="FormularioProdutosComponent" data-compartment="1">nome: string</text>
+<text x="0.0" y="46.5" stroke="none" data-name="FormularioProdutosComponent" data-compartment="1">preco: number</text>
+<text x="0.0" y="62.7" stroke="none" data-name="FormularioProdutosComponent" data-compartment="1">classificacao: string</text>
+<text x="0.0" y="78.9" stroke="none" data-name="FormularioProdutosComponent" data-compartment="1">}</text>
+<text x="0.0" y="95.1" stroke="none" data-name="FormularioProdutosComponent" data-compartment="1">-router: Router</text>
+<text x="0.0" y="111.3" stroke="none" data-name="FormularioProdutosComponent" data-compartment="1">-produtoService: ProdutosService</text>
+
+</g>
+</g>
+<g transform="translate(1807, 161)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="FormularioProdutosComponent" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="FormularioProdutosComponent" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="FormularioProdutosComponent" data-compartment="2">+paginaListagemProdutos(): void</text>
+<text x="0.0" y="30.3" stroke="none" data-name="FormularioProdutosComponent" data-compartment="2">+salvar(): void</text>
+<text x="0.0" y="46.5" stroke="none" data-name="FormularioProdutosComponent" data-compartment="2">+addProduto(): void</text>
+<text x="0.0" y="62.7" stroke="none" data-name="FormularioProdutosComponent" data-compartment="2">+alterarProduto(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="ListagemClientesComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="ListagemClientesComponent">
+<rect x="1378.3" y="306.5" height="275.0" width="283.0" data-name="ListagemClientesComponent"></rect>
+<path d="M1378.3 338.5 L1661.3 338.5" fill="none" data-name="ListagemClientesComponent"></path>
+<path d="M1378.3 484.5 L1661.3 484.5" fill="none" data-name="ListagemClientesComponent"></path>
+</g>
+<g transform="translate(1378.25, 306.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ListagemClientesComponent" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ListagemClientesComponent" data-compartment="0">
+<a id="../../sistema-de-vendas/src/app/components/listagem-clientes/listagem-clientes.component.ts.ListagemClientesComponent" xlink:href="../../sistema-de-vendas/src/app/components/listagem-clientes/listagem-clientes.component.ts"><text x="133.5" y="14.1" stroke="none" text-anchor="middle" data-name="ListagemClientesComponent" data-compartment="0">ListagemClientesComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(1378.25, 338.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ListagemClientesComponent" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ListagemClientesComponent" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="ListagemClientesComponent" data-compartment="1">+cliente: { nome: string</text>
+<text x="0.0" y="30.3" stroke="none" data-name="ListagemClientesComponent" data-compartment="1">cnpj: string</text>
+<text x="0.0" y="46.5" stroke="none" data-name="ListagemClientesComponent" data-compartment="1">}</text>
+<text x="0.0" y="62.7" stroke="none" data-name="ListagemClientesComponent" data-compartment="1">+clientes: any[]</text>
+<text x="0.0" y="78.9" stroke="none" data-name="ListagemClientesComponent" data-compartment="1">+colunas: PoTableColumn[]</text>
+<text x="0.0" y="95.1" stroke="none" data-name="ListagemClientesComponent" data-compartment="1">+acoes: PoTableAction[]</text>
+<text x="0.0" y="111.3" stroke="none" data-name="ListagemClientesComponent" data-compartment="1">-router: Router</text>
+<text x="0.0" y="127.5" stroke="none" data-name="ListagemClientesComponent" data-compartment="1">-clientesService: ClientesService</text>
+
+</g>
+</g>
+<g transform="translate(1378.25, 484.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ListagemClientesComponent" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ListagemClientesComponent" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="ListagemClientesComponent" data-compartment="2">+ngOnInit(): void</text>
+<text x="0.0" y="30.3" stroke="none" data-name="ListagemClientesComponent" data-compartment="2">+paginaFormularioClientes(): void</text>
+<text x="0.0" y="46.5" stroke="none" data-name="ListagemClientesComponent" data-compartment="2">+paginaEditarCliente(): void</text>
+<text x="0.0" y="62.7" stroke="none" data-name="ListagemClientesComponent" data-compartment="2">+deleteCliente(): void</text>
+<text x="0.0" y="78.9" stroke="none" data-name="ListagemClientesComponent" data-compartment="2">+getClientes(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="ListagemPedidosComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="ListagemPedidosComponent">
+<rect x="1701.3" y="331.0" height="226.0" width="277.0" data-name="ListagemPedidosComponent"></rect>
+<path d="M1701.3 363.0 L1978.3 363.0" fill="none" data-name="ListagemPedidosComponent"></path>
+<path d="M1701.3 460.0 L1978.3 460.0" fill="none" data-name="ListagemPedidosComponent"></path>
+</g>
+<g transform="translate(1701.25, 331)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ListagemPedidosComponent" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ListagemPedidosComponent" data-compartment="0">
+<a id="../../sistema-de-vendas/src/app/components/listagem-pedidos/listagem-pedidos.component.ts.ListagemPedidosComponent" xlink:href="../../sistema-de-vendas/src/app/components/listagem-pedidos/listagem-pedidos.component.ts"><text x="130.5" y="14.1" stroke="none" text-anchor="middle" data-name="ListagemPedidosComponent" data-compartment="0">ListagemPedidosComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(1701.25, 363)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ListagemPedidosComponent" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ListagemPedidosComponent" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="ListagemPedidosComponent" data-compartment="1">+pedidos: any</text>
+<text x="0.0" y="30.3" stroke="none" data-name="ListagemPedidosComponent" data-compartment="1">+colunas: PoTableColumn[]</text>
+<text x="0.0" y="46.5" stroke="none" data-name="ListagemPedidosComponent" data-compartment="1">+acoes: PoTableAction[]</text>
+<text x="0.0" y="62.7" stroke="none" data-name="ListagemPedidosComponent" data-compartment="1">-router: Router</text>
+<text x="0.0" y="78.9" stroke="none" data-name="ListagemPedidosComponent" data-compartment="1">-pedidosService: PedidosService</text>
+
+</g>
+</g>
+<g transform="translate(1701.25, 460)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ListagemPedidosComponent" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ListagemPedidosComponent" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="ListagemPedidosComponent" data-compartment="2">+ngOnInit(): void</text>
+<text x="0.0" y="30.3" stroke="none" data-name="ListagemPedidosComponent" data-compartment="2">+paginaAddPedido(): void</text>
+<text x="0.0" y="46.5" stroke="none" data-name="ListagemPedidosComponent" data-compartment="2">+getPedidos(): void</text>
+<text x="0.0" y="62.7" stroke="none" data-name="ListagemPedidosComponent" data-compartment="2">+excluirPedido(): void</text>
+<text x="0.0" y="78.9" stroke="none" data-name="ListagemPedidosComponent" data-compartment="2">+editarPedido(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="ListagemProdutosComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="ListagemProdutosComponent">
+<rect x="2018.3" y="331.0" height="226.0" width="291.0" data-name="ListagemProdutosComponent"></rect>
+<path d="M2018.3 363.0 L2309.3 363.0" fill="none" data-name="ListagemProdutosComponent"></path>
+<path d="M2018.3 460.0 L2309.3 460.0" fill="none" data-name="ListagemProdutosComponent"></path>
+</g>
+<g transform="translate(2018.25, 331)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ListagemProdutosComponent" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ListagemProdutosComponent" data-compartment="0">
+<a id="../../sistema-de-vendas/src/app/components/listagem-produtos/listagem-produtos.component.ts.ListagemProdutosComponent" xlink:href="../../sistema-de-vendas/src/app/components/listagem-produtos/listagem-produtos.component.ts"><text x="137.5" y="14.1" stroke="none" text-anchor="middle" data-name="ListagemProdutosComponent" data-compartment="0">ListagemProdutosComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(2018.25, 363)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ListagemProdutosComponent" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ListagemProdutosComponent" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="ListagemProdutosComponent" data-compartment="1">+produtos: any</text>
+<text x="0.0" y="30.3" stroke="none" data-name="ListagemProdutosComponent" data-compartment="1">+colunas: PoTableColumn[]</text>
+<text x="0.0" y="46.5" stroke="none" data-name="ListagemProdutosComponent" data-compartment="1">+acoes: PoTableAction[]</text>
+<text x="0.0" y="62.7" stroke="none" data-name="ListagemProdutosComponent" data-compartment="1">-router: Router</text>
+<text x="0.0" y="78.9" stroke="none" data-name="ListagemProdutosComponent" data-compartment="1">-produtosService: ProdutosService</text>
+
+</g>
+</g>
+<g transform="translate(2018.25, 460)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ListagemProdutosComponent" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ListagemProdutosComponent" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="ListagemProdutosComponent" data-compartment="2">+ngOnInit(): void</text>
+<text x="0.0" y="30.3" stroke="none" data-name="ListagemProdutosComponent" data-compartment="2">+paginaFormularioProduto(): void</text>
+<text x="0.0" y="46.5" stroke="none" data-name="ListagemProdutosComponent" data-compartment="2">+getProdutos(): void</text>
+<text x="0.0" y="62.7" stroke="none" data-name="ListagemProdutosComponent" data-compartment="2">+editarProduto(): void</text>
+<text x="0.0" y="78.9" stroke="none" data-name="ListagemProdutosComponent" data-compartment="2">+deletarProduto(): void</text>
+
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>
