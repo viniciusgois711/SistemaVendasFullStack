@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2025-12-04T01:58:15.685Z",
+    "detectionDate": "2025-12-09T02:28:11.239Z",
     "formats": {
       "typescript": {
         "sources": {
@@ -509,8 +509,8 @@
             "newClones": 0
           },
           "/workspaces/SistemaVendasFullStack/sistema-de-vendas/package.json": {
-            "lines": 51,
-            "tokens": 336,
+            "lines": 52,
+            "tokens": 343,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -543,12 +543,88 @@
             "percentageTokens": 0,
             "newDuplicatedLines": 0,
             "newClones": 0
+          },
+          "/workspaces/SistemaVendasFullStack/.devcontainer/devcontainer.json": {
+            "lines": 20,
+            "tokens": 92,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/workspaces/SistemaVendasFullStack/package.json": {
+            "lines": 30,
+            "tokens": 190,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/workspaces/SistemaVendasFullStack/.jscpd.json": {
+            "lines": 11,
+            "tokens": 59,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
           }
         },
         "total": {
-          "lines": 292,
-          "tokens": 1800,
-          "sources": 9,
+          "lines": 354,
+          "tokens": 2148,
+          "sources": 12,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "yaml": {
+        "sources": {
+          "/workspaces/SistemaVendasFullStack/.github/workflows/ci.yml": {
+            "lines": 72,
+            "tokens": 474,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/workspaces/SistemaVendasFullStack/.github/dependabot/dependabot.yml": {
+            "lines": 8,
+            "tokens": 46,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 80,
+          "tokens": 520,
+          "sources": 2,
           "clones": 0,
           "duplicatedLines": 0,
           "duplicatedTokens": 0,
@@ -571,12 +647,100 @@
             "percentageTokens": 0,
             "newDuplicatedLines": 0,
             "newClones": 0
+          },
+          "/workspaces/SistemaVendasFullStack/.devcontainer/vSemanticoLTS.md": {
+            "lines": 4,
+            "tokens": 16,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/workspaces/SistemaVendasFullStack/README.md": {
+            "lines": 45,
+            "tokens": 297,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/workspaces/SistemaVendasFullStack/OWASP.md": {
+            "lines": 93,
+            "tokens": 529,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
           }
         },
         "total": {
-          "lines": 24,
-          "tokens": 245,
-          "sources": 1,
+          "lines": 166,
+          "tokens": 1087,
+          "sources": 4,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "javascript": {
+        "sources": {
+          "/workspaces/SistemaVendasFullStack/prettier.config.js": {
+            "lines": 10,
+            "tokens": 71,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/workspaces/SistemaVendasFullStack/main.js": {
+            "lines": 264,
+            "tokens": 2358,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "/workspaces/SistemaVendasFullStack/.eslintrc.js": {
+            "lines": 21,
+            "tokens": 123,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 295,
+          "tokens": 2552,
+          "sources": 3,
           "clones": 0,
           "duplicatedLines": 0,
           "duplicatedTokens": 0,
@@ -588,9 +752,9 @@
       }
     },
     "total": {
-      "lines": 1243,
-      "tokens": 10040,
-      "sources": 42,
+      "lines": 1822,
+      "tokens": 14302,
+      "sources": 53,
       "clones": 0,
       "duplicatedLines": 0,
       "duplicatedTokens": 0,
