@@ -29,17 +29,13 @@ jobs:
         run: npm install
         working-directory: ./sistema-de-vendas
 
-      - name: Gerar diagrama de classes UML
+      - name: Gerar diagrama de classes UML Alterado
         working-directory: ./sistema-de-vendas
         run: |
           mkdir -p ../reports/uml
-          # garantir que qualquer arquivo anterior seja removido
           rm -f ../reports/uml/diagram.svg
-          # instalar dependências do frontend para garantir ferramentas locais
           npm ci
-          # gerar diagrama (saída: ../reports/uml/diagram.svg)
           npm run generate-uml
-          # listar e validar o arquivo gerado para diagnóstico no CI
           echo "Diagram files:"
           ls -la ../reports/uml || true
           echo "Checksum (sha256):"
