@@ -191,7 +191,7 @@ app.post("/pedidos", async(req, res) => {
     let valor;
     let valorTotal = 0;
 
-    for(item of itens){
+    for(let item of itens){
         valor = item.preco_unitario*item.quantidade;
         valorTotal += valor;   
     }

@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { ListagemClientesComponent } from './components/listagem-clientes/listagem-clientes.component';
-import { AppComponent } from './app.component';
 import { FormularioClientesComponent } from './components/formulario-clientes/formulario-clientes.component';
 import { ListagemProdutosComponent } from './components/listagem-produtos/listagem-produtos.component';
 import { FormularioProdutosComponent } from './components/formulario-produtos/formulario-produtos.component';
