@@ -8,7 +8,8 @@ import { ClientesService } from '../../services/clientes.service';
   selector: 'app-formulario-clientes',
   standalone: true,
   imports: [PoButtonModule, PoFieldModule, FormsModule],
-  templateUrl: './formulario-clientes.component.html'
+  templateUrl: './formulario-clientes.component.html',
+  styleUrl: './formulario-clientes.component.css',
 })
 export class FormularioClientesComponent {
   cliente = {
