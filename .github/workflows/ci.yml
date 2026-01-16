@@ -29,10 +29,17 @@ jobs:
         run: npm install
         working-directory: ./sistema-de-vendas
 
-      - name: Gerar diagrama de classes UML
+      - name: Gerar diagrama de classes UML Alterado
+        working-directory: ./sistema-de-vendas
         run: |
-          mkdir -p reports/uml
+          mkdir -p ../reports/uml
+          rm -f ../reports/uml/diagram.svg
+          npm ci
           npm run generate-uml
+          echo "Diagram files:"
+          ls -la ../reports/uml || true
+          echo "Checksum (sha256):"
+          sha256sum ../reports/uml/diagram.svg || true
 
       - name: Upload do diagrama UML
         uses: actions/upload-artifact@v4
