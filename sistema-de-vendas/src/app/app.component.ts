@@ -31,7 +31,7 @@ import {
 export class AppComponent {
   title = 'sistema-de-vendas';
 
-  constructor(private router: Router) {}
+  constructor(private readonly router: Router) {}
 
   readonly menus: Array<PoMenuItem> = [
     { label: 'Clientes', action: this.listagemClientes.bind(this) },

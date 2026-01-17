@@ -10,11 +10,11 @@ app.use(cors());
 app.use(express.json());
 
 const pool = new Pool({
-    user:"postgres",
-    host: "localhost",
-    port: 5432,
-    password: "0009",
-    database: "treinamentoUf"
+    user: process.env.DB_USER || "postgres",
+    host: process.env.DB_HOST || "localhost",
+    port: process.env.DB_PORT || 5432,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME || "treinamentoUf"
 })
 
 pool.connect().then(() => console.log("conectado"))
@@ -191,7 +191,7 @@ app.post("/pedidos", async(req, res) => {
     let valor;
     let valorTotal = 0;
 
-    for(item of itens){
+    for(let item of itens){
         valor = item.preco_unitario*item.quantidade;
         valorTotal += valor;   
     }
