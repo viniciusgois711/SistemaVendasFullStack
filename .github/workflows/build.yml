@@ -1,4 +1,4 @@
-name: Build
+name: Build SonarQube
 on:
   push:
   pull_request:
@@ -7,23 +7,11 @@ jobs:
     name: SonarQube
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@b4ffbf7b079f7a87ef0a239c3d8e3c3d505a9f12
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@8f152de45cc393bb48ce5d6f9a02a8fd8f7c62b91
-        with:
-          node-version: '18'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Run tests with coverage
-        run: npm test
-      
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@7295e71bc1d7c12567363a78ba6fbcab27d51a86
+        uses: SonarSource/sonarqube-scan-action@a31c9398be7ace6bbfaf30c0bd5d415f843d45e9
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
