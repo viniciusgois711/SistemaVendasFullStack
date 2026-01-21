@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
-
+// teste
 const pool = new Pool({
     user: process.env.DB_USER || "postgres",
     host: process.env.DB_HOST || "localhost",
