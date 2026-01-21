@@ -18,6 +18,8 @@ export class FormularioClientesComponent {
     cnpj: '',
   };
 
+  paginaListagem = '/listagem-clientes';
+
   constructor(private router: Router, private clientesService: ClientesService) {
     const state: any = router.getCurrentNavigation()?.extras.state;
 
@@ -27,16 +29,16 @@ export class FormularioClientesComponent {
   }
 
   paginaListagemClientes() {
-    this.router.navigate(['/listagem-clientes']);
+    this.router.navigate([this.paginaListagem]);
   }
 
   salvar() {
     if (this.cliente.id != 0) {
-      this.putCliente(this.cliente);
+      this.putCliente();
     } else {
       this.postCliente();
     }
-    this.router.navigate(['/listagem-clientes']);
+    this.router.navigate([this.paginaListagem]);
   }
 
   postCliente() {
@@ -45,13 +47,13 @@ export class FormularioClientesComponent {
         console.log(dados);
       },
     });
-    this.router.navigate(['/listagem-clientes']);
+    this.router.navigate([this.paginaListagem]);
   }
 
-  putCliente(cliente: any) {
+  putCliente() {
     this.clientesService.putClienteApi(this.cliente).subscribe({
       next: dados => console.log(dados),
-      error: error => console.log(error),
+      error: error => {},
     });
   }
 }
