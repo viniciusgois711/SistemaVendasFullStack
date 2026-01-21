@@ -55,6 +55,11 @@ jobs:
         run: npm run lint:deprecation
         working-directory: ./sistema-de-vendas
 
+      - name: Analisar Code Smells (SonarJS)
+        run: npm run lint:code-smells:report
+        working-directory: ./sistema-de-vendas
+        continue-on-error: true
+
       - name: Build frontend
         run: npm run build
         working-directory: ./sistema-de-vendas
