@@ -9,11 +9,22 @@
     "project": ["./tsconfig.json"],
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"],
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "plugins": ["@typescript-eslint", "sonarjs"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "rules": {
     "no-console": "warn",
     "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "sonarjs/no-duplicate-string": ["warn", { "threshold": 3 }],
+    "sonarjs/no-duplicated-branches": "warn",
+    "sonarjs/no-identical-functions": "warn",
+    "sonarjs/prefer-single-boolean-return": "warn",
+    "sonarjs/no-inverted-boolean-check": "warn",
+    "sonarjs/cognitive-complexity": ["warn", 15],
+    "sonarjs/max-switch-cases": ["warn", 20],
+    "sonarjs/no-nested-template-literals": "warn"
   }
 }
