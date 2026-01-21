@@ -18,7 +18,7 @@ export class FormularioClientesComponent {
     cnpj: '',
   };
 
-  paginaListagem = '/listagem-clientes'
+  paginaListagem = '/listagem-clientes';
 
   constructor(private router: Router, private clientesService: ClientesService) {
     const state: any = router.getCurrentNavigation()?.extras.state;
